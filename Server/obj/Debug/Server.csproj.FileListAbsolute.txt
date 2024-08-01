@@ -2,9 +2,9 @@ D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\bin\Debug\Server.exe
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\bin\Debug\Server.pdb
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.csproj.AssemblyReference.cache
-D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.Form1.resources
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.Properties.Resources.resources
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.csproj.GenerateResource.cache
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.exe
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.pdb
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.Server.resources
