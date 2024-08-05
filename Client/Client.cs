@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Client
 {
@@ -83,15 +84,45 @@ namespace Client
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
 
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
 
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void client_send_Click(object sender, EventArgs e)
+        {
+            string message = $"{textBox_bidderName.Text}|{textBox_price.Text}";
+            byte[] hmac = ComputeHMAC(message, sharedKey);
+            byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
+            udpClient.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5000);
+        }
+
+        private void textBox_bidderName_TextChanged(object sender, EventArgs e)
         {
 
         }

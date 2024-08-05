@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
-            this.imageList1 = new System.Windows.Forms.ImageList();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.textBox_bidderName = new System.Windows.Forms.TextBox();
+            this.textBox_price = new System.Windows.Forms.TextBox();
+            this.textBox_ProductName = new System.Windows.Forms.TextBox();
+            this.price_label = new System.Windows.Forms.Label();
+            this.Bidder_label = new System.Windows.Forms.Label();
+            this.product_label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.bid_label = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -53,7 +54,7 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.client_send_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -66,53 +67,57 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // textBox4
+            // textBox_bidderName
             // 
-            this.textBox4.Location = new System.Drawing.Point(159, 586);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(279, 22);
-            this.textBox4.TabIndex = 36;
+            this.textBox_bidderName.Location = new System.Drawing.Point(159, 586);
+            this.textBox_bidderName.Name = "textBox_bidderName";
+            this.textBox_bidderName.Size = new System.Drawing.Size(279, 22);
+            this.textBox_bidderName.TabIndex = 36;
+            this.textBox_bidderName.TextChanged += new System.EventHandler(this.textBox_bidderName_TextChanged);
+            this.textBox_bidderName.Text = "";
             // 
-            // textBox3
+            // textBox_price
             // 
-            this.textBox3.Location = new System.Drawing.Point(159, 635);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(279, 22);
-            this.textBox3.TabIndex = 35;
+            this.textBox_price.Location = new System.Drawing.Point(159, 635);
+            this.textBox_price.Name = "textBox_price";
+            this.textBox_price.Size = new System.Drawing.Size(279, 22);
+            this.textBox_price.TabIndex = 35;
+            this.textBox_price.Text = "";
             // 
-            // textBox2
+            // textBox_ProductName
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 541);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(279, 22);
-            this.textBox2.TabIndex = 34;
+            this.textBox_ProductName.Location = new System.Drawing.Point(159, 541);
+            this.textBox_ProductName.Name = "textBox_ProductName";
+            this.textBox_ProductName.Size = new System.Drawing.Size(279, 22);
+            this.textBox_ProductName.TabIndex = 34;
+            this.textBox_ProductName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // label7
+            // price_label
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 638);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 16);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "Input price:";
+            this.price_label.AutoSize = true;
+            this.price_label.Location = new System.Drawing.Point(20, 638);
+            this.price_label.Name = "price_label";
+            this.price_label.Size = new System.Drawing.Size(71, 16);
+            this.price_label.TabIndex = 31;
+            this.price_label.Text = "Input price:";
             // 
-            // label6
+            // Bidder_label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 592);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 16);
-            this.label6.TabIndex = 30;
-            this.label6.Text = "Auctioneer\'s name:";
+            this.Bidder_label.AutoSize = true;
+            this.Bidder_label.Location = new System.Drawing.Point(20, 592);
+            this.Bidder_label.Name = "Bidder_label";
+            this.Bidder_label.Size = new System.Drawing.Size(97, 16);
+            this.Bidder_label.TabIndex = 30;
+            this.Bidder_label.Text = "Bidder\'s name:";
             // 
-            // label5
+            // product_label
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 547);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 16);
-            this.label5.TabIndex = 29;
-            this.label5.Text = "Product Name:";
+            this.product_label.AutoSize = true;
+            this.product_label.Location = new System.Drawing.Point(20, 547);
+            this.product_label.Name = "product_label";
+            this.product_label.Size = new System.Drawing.Size(96, 16);
+            this.product_label.TabIndex = 29;
+            this.product_label.Text = "Product Name:";
             // 
             // label3
             // 
@@ -123,7 +128,6 @@
             this.label3.Size = new System.Drawing.Size(145, 16);
             this.label3.TabIndex = 27;
             this.label3.Text = "Produce Information";
-            this.label3.UseWaitCursor = true;
             // 
             // textBox1
             // 
@@ -133,7 +137,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(780, 173);
             this.textBox1.TabIndex = 26;
-            this.textBox1.UseWaitCursor = true;
+            this.textBox1.Text = "...";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -144,7 +149,6 @@
             this.label2.Size = new System.Drawing.Size(170, 16);
             this.label2.TabIndex = 22;
             this.label2.Text = "Choose product to sell: ";
-            this.label2.UseWaitCursor = true;
             // 
             // label1
             // 
@@ -154,7 +158,6 @@
             this.label1.Size = new System.Drawing.Size(374, 54);
             this.label1.TabIndex = 21;
             this.label1.Text = "Auctions Home Page";
-            this.label1.UseWaitCursor = true;
             // 
             // pictureBox4
             // 
@@ -165,7 +168,6 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.UseWaitCursor = true;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
@@ -177,7 +179,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.UseWaitCursor = true;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
@@ -189,7 +190,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.UseWaitCursor = true;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
@@ -201,19 +201,19 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.UseWaitCursor = true;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label4
+            // bid_label
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(154, 496);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(107, 29);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Bid now";
-            this.label4.UseWaitCursor = true;
+            this.bid_label.AutoSize = true;
+            this.bid_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bid_label.Location = new System.Drawing.Point(154, 496);
+            this.bid_label.Name = "bid_label";
+            this.bid_label.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bid_label.Size = new System.Drawing.Size(107, 29);
+            this.bid_label.TabIndex = 28;
+            this.bid_label.Text = "Bid now";
+            this.bid_label.UseWaitCursor = true;
             // 
             // textBox8
             // 
@@ -255,7 +255,6 @@
             this.label10.Size = new System.Drawing.Size(80, 29);
             this.label10.TabIndex = 38;
             this.label10.Text = "Time ";
-            this.label10.UseWaitCursor = true;
             // 
             // checkBox1
             // 
@@ -297,21 +296,22 @@
             this.checkBox4.Text = "Available";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // client_send_btn
             // 
-            this.button2.Location = new System.Drawing.Point(375, 682);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(63, 31);
-            this.button2.TabIndex = 47;
-            this.button2.Text = "Send";
-            this.button2.UseVisualStyleBackColor = true;
+            this.client_send_btn.Location = new System.Drawing.Point(375, 682);
+            this.client_send_btn.Name = "client_send_btn";
+            this.client_send_btn.Size = new System.Drawing.Size(63, 31);
+            this.client_send_btn.TabIndex = 47;
+            this.client_send_btn.Text = "Send";
+            this.client_send_btn.UseVisualStyleBackColor = true;
+            this.client_send_btn.Click += new System.EventHandler(this.client_send_Click);
             // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 815);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.client_send_btn);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
@@ -320,13 +320,13 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox_bidderName);
+            this.Controls.Add(this.textBox_price);
+            this.Controls.Add(this.textBox_ProductName);
+            this.Controls.Add(this.price_label);
+            this.Controls.Add(this.Bidder_label);
+            this.Controls.Add(this.product_label);
+            this.Controls.Add(this.bid_label);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox4);
@@ -350,12 +350,12 @@
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox_bidderName;
+        private System.Windows.Forms.TextBox textBox_price;
+        private System.Windows.Forms.TextBox textBox_ProductName;
+        private System.Windows.Forms.Label price_label;
+        private System.Windows.Forms.Label Bidder_label;
+        private System.Windows.Forms.Label product_label;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -364,7 +364,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label bid_label;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox7;
@@ -373,7 +373,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button client_send_btn;
     }
 }
 

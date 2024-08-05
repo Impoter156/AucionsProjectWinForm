@@ -17,35 +17,24 @@ namespace Server
         private string selectedImageName;
         private Thread receiveThread;
         private bool isRunning;
+        private byte[] sharedKey = Encoding.UTF8.GetBytes("2251120449");
 
         public Server()
         {
             InitializeComponent();
-            StartReceiveThread();
             StartServer();
-
-            // Assign click event handler to each PictureBox
-            pictureBox1.Click += pictureBox_Click;
-            pictureBox2.Click += pictureBox_Click;
-            pictureBox3.Click += pictureBox_Click;
-            pictureBox4.Click += pictureBox_Click;
+            receiveThread = new Thread(ReceiveMessages)
+            {
+                IsBackground = true
+            };
+            receiveThread.Start();
         }
 
         private void StartServer()
         {
             udpServer = new UdpClient(PORT);
             remoteEndPoint = new IPEndPoint(IPAddress.Any, PORT);
-            //udpServer.BeginReceive(new AsyncCallback(ReceiveCallback), null);
             isRunning = true;
-        }
-
-        private void StartReceiveThread()
-        {
-            receiveThread = new Thread(ReceiveMessages)
-            {
-                IsBackground = true
-            };
-            receiveThread.Start();
         }
 
         public static byte[] ComputeHMAC(string message, byte[] key)
@@ -55,23 +44,39 @@ namespace Server
                 return hmac.ComputeHash(Encoding.UTF8.GetBytes(message));
             }
         }
-
-        private byte[] sharedKey = Encoding.UTF8.GetBytes("2251120449");
         private void ReceiveMessages()
         {
+            
             while (isRunning)
             {
                 byte[] data = udpServer.Receive(ref remoteEndPoint);
-                string receivedMessage = Encoding.ASCII.GetString(data, 0, data.Length - 32); // Assuming last 32 bytes are HMAC
-                byte[] receivedHMAC = new byte[32];
-                Array.Copy(data, data.Length - 32, receivedHMAC, 0, 32);
+                string receivedMessage = Encoding.ASCII.GetString(data.Take(data.Length - 32).ToArray());
+                byte[] receivedHMAC = data.Skip(data.Length - 32).ToArray();
 
-                //Compute HMAC
+                // Compute HMAC
                 byte[] computedHMAC = ComputeHMAC(receivedMessage, sharedKey);
+                if (receivedHMAC.SequenceEqual(computedHMAC))
+                {
+                    UpdateTextBoxes(receivedMessage);
+                }
             }
         }
-
-
+        private void UpdateTextBoxes(string message)
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new Action<string>(UpdateTextBoxes), message);
+            }
+            else
+            {
+                string[] parts = message.Split('|');
+                if (parts.Length == 2)
+                {
+                    textBox_bidder1Name.Text = parts[0];
+                    textBox_bidder1Price.Text = parts[1];
+                }
+            }
+        }
 
         private void ReceiveCallback(IAsyncResult ar)
         {
@@ -91,18 +96,6 @@ namespace Server
             }
         }
 
-        private void pictureBox_Click(object sender, EventArgs e)
-        {
-            PictureBox clickedPictureBox = sender as PictureBox;
-
-            if (clickedPictureBox != null)
-            {
-                // Get the name of the clicked image
-                selectedImageName = clickedPictureBox.Name; // Assuming picture boxes are named accordingly
-                MessageBox.Show($"Selected Image: {selectedImageName}");
-            }
-        }
-
         private void Selling_btn_Click(object sender, EventArgs e)
         {
             SendMessageToClient(selectedImageName);
@@ -116,9 +109,30 @@ namespace Server
             udpServer.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5001);
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            selectedImageName = pictureBox1.Name;
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            selectedImageName = pictureBox2.Name;
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            selectedImageName = pictureBox3.Name;
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+        }
+
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-
+            selectedImageName = pictureBox4.Name;
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -127,11 +141,6 @@ namespace Server
             udpServer?.Close();
             receiveThread?.Join(); // Ensure the receive thread stops before closing the form
             base.OnFormClosing(e);
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
