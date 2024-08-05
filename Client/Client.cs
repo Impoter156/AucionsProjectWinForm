@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Net.Mime.MediaTypeNames;
+
 
 namespace Client
 {
@@ -21,6 +17,9 @@ namespace Client
         private IPEndPoint receivePoint;
         private Thread receiveThread;
         private byte[] sharedKey;
+        private System.Windows.Forms.Timer countdownTimerClient; // Add a Timer for countdown
+        private int countdownValue; // Store the countdown value
+
         public Client()
         {
             InitializeComponent();
@@ -32,6 +31,9 @@ namespace Client
                 IsBackground = true
             };
             receiveThread.Start();
+            countdownTimerClient = new System.Windows.Forms.Timer();
+            countdownTimerClient.Interval = 1000; // Set interval to 1 second
+            countdownTimerClient.Tick += countdownTimerClient_Tick;
         }
 
         public void WaitPacketsFromServer()
@@ -48,6 +50,7 @@ namespace Client
                 if (receivedHMAC.SequenceEqual(computedHMAC))
                 {
                     UpdateCheckbox(strData);
+                    Start_countDown(strData);
                 }
                 else
                 {
@@ -124,6 +127,38 @@ namespace Client
 
         private void textBox_bidderName_TextChanged(object sender, EventArgs e)
         {
+
+        }
+        private void countdownTimerClient_Tick(object sender, EventArgs e)
+        {
+            if (countdownValue > 0)
+            {
+                textBox_countDown.Text = countdownValue.ToString(); // Update the countdown textbox
+                countdownValue--; // Decrement the countdown value
+            }
+            else
+            {
+                countdownTimerClient.Stop(); // Stop the timer when countdown reaches 0
+            }
+        }
+
+        private void Start_countDown(string message)
+        {
+            if (textBox_countDown.InvokeRequired)
+            {
+                textBox_countDown.Invoke(new Action<string>(Start_countDown), message);
+            }
+            else
+            {
+                countdownValue = 3; // Set the countdown starting value
+                textBox_countDown.Text = countdownValue.ToString(); // Display the initial value
+
+                // Start the countdown only if it's not already running
+                if (!countdownTimerClient.Enabled)
+                {
+                    countdownTimerClient.Start(); // Start the countdown
+                }
+            }
 
         }
     }

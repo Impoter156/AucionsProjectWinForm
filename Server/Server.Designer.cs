@@ -50,11 +50,11 @@ namespace Server
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox_countdown = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.startSelling_btn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.countDown_btn = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -167,7 +167,6 @@ namespace Server
             this.textBox_bidder1Name.Name = "textBox_bidder1Name";
             this.textBox_bidder1Name.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder1Name.TabIndex = 16;
-            this.textBox_bidder1Name.Text = "";
             // 
             // textBox_bidder1Price
             // 
@@ -175,7 +174,6 @@ namespace Server
             this.textBox_bidder1Price.Name = "textBox_bidder1Price";
             this.textBox_bidder1Price.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder1Price.TabIndex = 17;
-            this.textBox_bidder1Price.Text = "";
             // 
             // textBox5
             // 
@@ -220,15 +218,15 @@ namespace Server
             this.label10.TabIndex = 22;
             this.label10.Text = "Time ";
             // 
-            // textBox7
+            // textBox_countdown
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(700, 539);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(90, 127);
-            this.textBox7.TabIndex = 23;
-            this.textBox7.Text = "1";
+            this.textBox_countdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_countdown.Location = new System.Drawing.Point(700, 539);
+            this.textBox_countdown.Multiline = true;
+            this.textBox_countdown.Name = "textBox_countdown";
+            this.textBox_countdown.Size = new System.Drawing.Size(90, 127);
+            this.textBox_countdown.TabIndex = 23;
+            this.textBox_countdown.Text = "";
             // 
             // label11
             // 
@@ -261,14 +259,15 @@ namespace Server
             this.startSelling_btn.UseVisualStyleBackColor = true;
             this.startSelling_btn.Click += new System.EventHandler(this.Selling_btn_Click);
             // 
-            // button2
+            // countDown_btn
             // 
-            this.button2.Location = new System.Drawing.Point(538, 589);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 33);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "Count down";
-            this.button2.UseVisualStyleBackColor = true;
+            this.countDown_btn.Location = new System.Drawing.Point(538, 589);
+            this.countDown_btn.Name = "countDown_btn";
+            this.countDown_btn.Size = new System.Drawing.Size(130, 33);
+            this.countDown_btn.TabIndex = 27;
+            this.countDown_btn.Text = "Count down";
+            this.countDown_btn.UseVisualStyleBackColor = true;
+            this.countDown_btn.Click += new System.EventHandler(this.countDown_btn_Click);
             // 
             // pictureBox4
             // 
@@ -319,11 +318,11 @@ namespace Server
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 813);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.countDown_btn);
             this.Controls.Add(this.startSelling_btn);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox_countdown);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox6);
@@ -381,11 +380,11 @@ namespace Server
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox_countdown;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button startSelling_btn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button countDown_btn;
     }
 }
 

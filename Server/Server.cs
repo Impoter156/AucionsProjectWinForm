@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing.Text;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -18,6 +19,8 @@ namespace Server
         private Thread receiveThread;
         private bool isRunning;
         private byte[] sharedKey = Encoding.UTF8.GetBytes("2251120449");
+        private System.Windows.Forms.Timer countdownTimer; // Add a Timer for countdown
+        private int countdownValue; // Store the countdown value
 
         public Server()
         {
@@ -27,6 +30,11 @@ namespace Server
             {
                 IsBackground = true
             };
+
+            // Initialize the countdown timer
+            countdownTimer = new System.Windows.Forms.Timer();
+            countdownTimer.Interval = 1000; // Set interval to 1 second
+            countdownTimer.Tick += CountdownTimer_Tick;
             receiveThread.Start();
         }
 
@@ -46,7 +54,6 @@ namespace Server
         }
         private void ReceiveMessages()
         {
-            
             while (isRunning)
             {
                 byte[] data = udpServer.Receive(ref remoteEndPoint);
@@ -133,6 +140,28 @@ namespace Server
         {
             selectedImageName = pictureBox4.Name;
             textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+        }
+
+        private void CountdownTimer_Tick(object sender, EventArgs e)
+        {
+            if (countdownValue > 0)
+            {
+                textBox_countdown.Text = countdownValue.ToString(); // Update the countdown textbox
+                countdownValue--; // Decrement the countdown value
+            }
+            else
+            {
+                countdownTimer.Stop(); // Stop the timer when countdown reaches 0
+            }
+        }
+
+        private void countDown_btn_Click(object sender, EventArgs e)
+        {
+            countdownValue = 3; // Set the countdown starting value
+            textBox_countdown.Text = countdownValue.ToString(); // Display the initial value
+            countdownTimer.Start(); // Start the countdown
+            string messageToClient = "start_countDown";
+            SendMessageToClient(messageToClient);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

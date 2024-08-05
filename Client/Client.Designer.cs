@@ -48,7 +48,7 @@
             this.bid_label = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox_countDown = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -74,7 +74,6 @@
             this.textBox_bidderName.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidderName.TabIndex = 36;
             this.textBox_bidderName.TextChanged += new System.EventHandler(this.textBox_bidderName_TextChanged);
-            this.textBox_bidderName.Text = "";
             // 
             // textBox_price
             // 
@@ -82,7 +81,6 @@
             this.textBox_price.Name = "textBox_price";
             this.textBox_price.Size = new System.Drawing.Size(279, 22);
             this.textBox_price.TabIndex = 35;
-            this.textBox_price.Text = "";
             // 
             // textBox_ProductName
             // 
@@ -235,15 +233,14 @@
             this.label11.TabIndex = 40;
             this.label11.Text = "Winner!";
             // 
-            // textBox7
+            // textBox_countDown
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(612, 547);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(90, 127);
-            this.textBox7.TabIndex = 39;
-            this.textBox7.Text = "1";
+            this.textBox_countDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_countDown.Location = new System.Drawing.Point(612, 547);
+            this.textBox_countDown.Multiline = true;
+            this.textBox_countDown.Name = "textBox_countDown";
+            this.textBox_countDown.Size = new System.Drawing.Size(90, 127);
+            this.textBox_countDown.TabIndex = 39;
             // 
             // label10
             // 
@@ -318,7 +315,7 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox_countDown);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox_bidderName);
             this.Controls.Add(this.textBox_price);
@@ -367,7 +364,7 @@
         private System.Windows.Forms.Label bid_label;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox_countDown;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
