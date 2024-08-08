@@ -114,7 +114,7 @@ namespace Server
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 16);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Produce Information";
+            this.label3.Text = "Product Information";
             // 
             // label4
             // 
