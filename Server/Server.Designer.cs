@@ -45,10 +45,10 @@ namespace Server
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox_bidder1Name = new System.Windows.Forms.TextBox();
             this.textBox_bidder1Price = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.textBox_bidder2Price = new System.Windows.Forms.TextBox();
+            this.textBox_bidder2Name = new System.Windows.Forms.TextBox();
+            this.bidder2Price_label = new System.Windows.Forms.Label();
+            this.bidder2Name_lablel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox_countdown = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -175,37 +175,37 @@ namespace Server
             this.textBox_bidder1Price.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder1Price.TabIndex = 17;
             // 
-            // textBox5
+            // textBox_bidder2Price
             // 
-            this.textBox5.Location = new System.Drawing.Point(187, 762);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(279, 22);
-            this.textBox5.TabIndex = 21;
+            this.textBox_bidder2Price.Location = new System.Drawing.Point(187, 762);
+            this.textBox_bidder2Price.Name = "textBox_bidder2Price";
+            this.textBox_bidder2Price.Size = new System.Drawing.Size(279, 22);
+            this.textBox_bidder2Price.TabIndex = 21;
             // 
-            // textBox6
+            // textBox_bidder2Name
             // 
-            this.textBox6.Location = new System.Drawing.Point(187, 704);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(279, 22);
-            this.textBox6.TabIndex = 20;
+            this.textBox_bidder2Name.Location = new System.Drawing.Point(187, 704);
+            this.textBox_bidder2Name.Name = "textBox_bidder2Name";
+            this.textBox_bidder2Name.Size = new System.Drawing.Size(279, 22);
+            this.textBox_bidder2Name.TabIndex = 20;
             // 
-            // label8
+            // bidder2Price_label
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 768);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 16);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Auctioneer2 price:";
+            this.bidder2Price_label.AutoSize = true;
+            this.bidder2Price_label.Location = new System.Drawing.Point(25, 768);
+            this.bidder2Price_label.Name = "bidder2Price_label";
+            this.bidder2Price_label.Size = new System.Drawing.Size(90, 16);
+            this.bidder2Price_label.TabIndex = 19;
+            this.bidder2Price_label.Text = "Bidder2 price:";
             // 
-            // label9
+            // bidder2Name_lablel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 710);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 16);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Auctioneer2 name:";
+            this.bidder2Name_lablel.AutoSize = true;
+            this.bidder2Name_lablel.Location = new System.Drawing.Point(25, 710);
+            this.bidder2Name_lablel.Name = "bidder2Name_lablel";
+            this.bidder2Name_lablel.Size = new System.Drawing.Size(94, 16);
+            this.bidder2Name_lablel.TabIndex = 18;
+            this.bidder2Name_lablel.Text = "Bidder2 name:";
             // 
             // label10
             // 
@@ -226,7 +226,6 @@ namespace Server
             this.textBox_countdown.Name = "textBox_countdown";
             this.textBox_countdown.Size = new System.Drawing.Size(90, 127);
             this.textBox_countdown.TabIndex = 23;
-            this.textBox_countdown.Text = "";
             // 
             // label11
             // 
@@ -267,7 +266,7 @@ namespace Server
             this.countDown_btn.TabIndex = 27;
             this.countDown_btn.Text = "Count down";
             this.countDown_btn.UseVisualStyleBackColor = true;
-            this.countDown_btn.Click += new System.EventHandler(this.countDown_btn_Click);
+            this.countDown_btn.Click += new System.EventHandler(this.CountDown_btn_Click);
             // 
             // pictureBox4
             // 
@@ -324,10 +323,10 @@ namespace Server
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox_countdown);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox_bidder2Price);
+            this.Controls.Add(this.textBox_bidder2Name);
+            this.Controls.Add(this.bidder2Price_label);
+            this.Controls.Add(this.bidder2Name_lablel);
             this.Controls.Add(this.textBox_bidder1Price);
             this.Controls.Add(this.textBox_bidder1Name);
             this.Controls.Add(this.textBox2);
@@ -375,10 +374,10 @@ namespace Server
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox_bidder1Name;
         private System.Windows.Forms.TextBox textBox_bidder1Price;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox_bidder2Price;
+        private System.Windows.Forms.TextBox textBox_bidder2Name;
+        private System.Windows.Forms.Label bidder2Price_label;
+        private System.Windows.Forms.Label bidder2Name_lablel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_countdown;
         private System.Windows.Forms.Label label11;

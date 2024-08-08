@@ -1,0 +1,7 @@
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\test2personClick\bin\Debug\test2personClick.exe.config
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\test2personClick\bin\Debug\test2personClick.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\test2personClick\bin\Debug\test2personClick.pdb
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\test2personClick\obj\Debug\test2personClick.csproj.AssemblyReference.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\test2personClick\obj\Debug\test2personClick.csproj.CoreCompileInputs.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\test2personClick\obj\Debug\test2personClick.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\test2personClick\obj\Debug\test2personClick.pdb

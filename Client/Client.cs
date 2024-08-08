@@ -6,8 +6,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-
 
 namespace Client
 {
@@ -17,47 +15,72 @@ namespace Client
         private IPEndPoint receivePoint;
         private Thread receiveThread;
         private byte[] sharedKey;
-        private System.Windows.Forms.Timer countdownTimerClient; // Add a Timer for countdown
-        private int countdownValue; // Store the countdown value
+        private System.Windows.Forms.Timer countdownTimerClient;
+        private int countdownValue;
 
         public Client()
         {
             InitializeComponent();
+            InitializeUdpClient();
+            InitializeCountdownTimer();
+            StartReceiveThread();
+        }
+
+        private void InitializeUdpClient()
+        {
             receivePoint = new IPEndPoint(IPAddress.Any, 0);
             udpClient = new UdpClient(5001); // Ensure this is different from the server port
             sharedKey = Encoding.UTF8.GetBytes("2251120449"); // Define your shared key here
-            receiveThread = new Thread(new ThreadStart(WaitPacketsFromServer))
+        }
+
+        private void InitializeCountdownTimer()
+        {
+            countdownTimerClient = new System.Windows.Forms.Timer
+            {
+                Interval = 1000 // Set interval to 1 second
+            };
+            countdownTimerClient.Tick += CountdownTimerClient_Tick;
+        }
+
+        private void StartReceiveThread()
+        {
+            receiveThread = new Thread(WaitPacketsFromServer)
             {
                 IsBackground = true
             };
             receiveThread.Start();
-            countdownTimerClient = new System.Windows.Forms.Timer();
-            countdownTimerClient.Interval = 1000; // Set interval to 1 second
-            countdownTimerClient.Tick += countdownTimerClient_Tick;
         }
 
-        public void WaitPacketsFromServer()
+        public async void WaitPacketsFromServer()
         {
             while (true)
             {
-                sharedKey = Encoding.UTF8.GetBytes("2251120449");
-                byte[] data = udpClient.Receive(ref receivePoint);
-                string strData = Encoding.ASCII.GetString(data.Take(data.Length - 32).ToArray()); // Assuming last 32 bytes are HMAC
-                byte[] receivedHMAC = data.Skip(data.Length - 32).ToArray();
-
-                // Verify HMAC
-                byte[] computedHMAC = ComputeHMAC(strData, sharedKey);
-                if (receivedHMAC.SequenceEqual(computedHMAC))
-                {
-                    UpdateCheckbox(strData);
-                    Start_countDown(strData);
-                }
-                else
-                {
-                    MessageBox.Show("HMAC verification failed.");
-                }
+                var result = await udpClient.ReceiveAsync(); // Asynchronously receive data
+                ProcessReceivedData(result.Buffer);
             }
         }
+        private void ProcessReceivedData(byte[] data)
+        {
+            string strData = Encoding.ASCII.GetString(data.Take(data.Length - 32).ToArray()); // Assuming last 32 bytes are HMAC
+            byte[] receivedHMAC = data.Skip(data.Length - 32).ToArray();
+
+            // Verify HMAC
+            if (VerifyHMAC(strData, receivedHMAC))
+            {
+                UpdateCheckbox(strData);
+                StartCountdown(strData);
+            }
+            else
+            {
+                MessageBox.Show("HMAC verification failed.");
+            }
+        }
+        private bool VerifyHMAC(string message, byte[] receivedHMAC)
+        {
+            byte[] computedHMAC = ComputeHMAC(message, sharedKey);
+            return receivedHMAC.SequenceEqual(computedHMAC);
+        }
+
         private byte[] ComputeHMAC(string message, byte[] key)
         {
             using (var hmac = new HMACSHA256(key))
@@ -66,23 +89,18 @@ namespace Client
             }
         }
 
-
         private void UpdateCheckbox(string imageName)
         {
-            // Check if we need to invoke
-            if (checkBox1.InvokeRequired || checkBox2.InvokeRequired || checkBox3.InvokeRequired || checkBox4.InvokeRequired)
+            if (InvokeRequired)
             {
-                // Create a delegate to update the CheckBox
-                this.Invoke(new Action<string>(UpdateCheckbox), imageName);
+                Invoke(new Action<string>(UpdateCheckbox), imageName);
+                return;
             }
-            else
-            {
-                // Logic to check the checkbox based on the image name
-                checkBox1.Checked = imageName == "pictureBox1";
-                checkBox2.Checked = imageName == "pictureBox2";
-                checkBox3.Checked = imageName == "pictureBox3";
-                checkBox4.Checked = imageName == "pictureBox4";
-            }
+
+            checkBox1.Checked = imageName == "pictureBox1";
+            checkBox2.Checked = imageName == "pictureBox2";
+            checkBox3.Checked = imageName == "pictureBox3";
+            checkBox4.Checked = imageName == "pictureBox4";
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -129,37 +147,34 @@ namespace Client
         {
 
         }
-        private void countdownTimerClient_Tick(object sender, EventArgs e)
+        private void CountdownTimerClient_Tick(object sender, EventArgs e)
         {
             if (countdownValue > 0)
             {
-                textBox_countDown.Text = countdownValue.ToString(); // Update the countdown textbox
-                countdownValue--; // Decrement the countdown value
+                textBox_countDown.Text = countdownValue.ToString();
+                countdownValue--;
             }
             else
             {
-                countdownTimerClient.Stop(); // Stop the timer when countdown reaches 0
+                countdownTimerClient.Stop();
             }
         }
 
-        private void Start_countDown(string message)
+        private void StartCountdown(string message)
         {
             if (textBox_countDown.InvokeRequired)
             {
-                textBox_countDown.Invoke(new Action<string>(Start_countDown), message);
+                textBox_countDown.Invoke(new Action<string>(StartCountdown), message);
+                return;
             }
-            else
+
+            countdownValue = 3; // Set the countdown starting value
+            textBox_countDown.Text = countdownValue.ToString();
+
+            if (!countdownTimerClient.Enabled)
             {
-                countdownValue = 3; // Set the countdown starting value
-                textBox_countDown.Text = countdownValue.ToString(); // Display the initial value
-
-                // Start the countdown only if it's not already running
-                if (!countdownTimerClient.Enabled)
-                {
-                    countdownTimerClient.Start(); // Start the countdown
-                }
+                countdownTimerClient.Start(); // Start the countdown
             }
-
         }
     }
 }

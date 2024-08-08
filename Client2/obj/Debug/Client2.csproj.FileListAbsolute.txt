@@ -1,0 +1,13 @@
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.csproj.AssemblyReference.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.Client2.resources
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.Properties.Resources.resources
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.Client2.aa-DJ.resources
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.csproj.GenerateResource.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.csproj.CoreCompileInputs.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\bin\Debug\Client2.exe.config
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\bin\Debug\Client2.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\bin\Debug\Client2.pdb
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\bin\Debug\aa-DJ\Client2.resources.dll
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\aa-DJ\Client2.resources.dll
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.pdb
