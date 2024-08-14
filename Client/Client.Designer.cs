@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.textBox_bidderName = new System.Windows.Forms.TextBox();
+            this.textBox_bidder1Name = new System.Windows.Forms.TextBox();
             this.textBox_price = new System.Windows.Forms.TextBox();
             this.textBox_ProductName = new System.Windows.Forms.TextBox();
             this.price_label = new System.Windows.Forms.Label();
             this.Bidder_label = new System.Windows.Forms.Label();
             this.product_label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Client1_textBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -55,6 +55,8 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.client_send_btn = new System.Windows.Forms.Button();
             this.textBox_countDownClient = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.stratingPrice_textBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -67,17 +69,17 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // textBox_bidderName
+            // textBox_bidder1Name
             // 
-            this.textBox_bidderName.Location = new System.Drawing.Point(159, 586);
-            this.textBox_bidderName.Name = "textBox_bidderName";
-            this.textBox_bidderName.Size = new System.Drawing.Size(279, 22);
-            this.textBox_bidderName.TabIndex = 36;
-            this.textBox_bidderName.TextChanged += new System.EventHandler(this.textBox_bidderName_TextChanged);
+            this.textBox_bidder1Name.Location = new System.Drawing.Point(159, 634);
+            this.textBox_bidder1Name.Name = "textBox_bidder1Name";
+            this.textBox_bidder1Name.Size = new System.Drawing.Size(279, 22);
+            this.textBox_bidder1Name.TabIndex = 36;
+            this.textBox_bidder1Name.Text = "";
             // 
             // textBox_price
             // 
-            this.textBox_price.Location = new System.Drawing.Point(159, 635);
+            this.textBox_price.Location = new System.Drawing.Point(159, 683);
             this.textBox_price.Name = "textBox_price";
             this.textBox_price.Size = new System.Drawing.Size(279, 22);
             this.textBox_price.TabIndex = 35;
@@ -88,12 +90,11 @@
             this.textBox_ProductName.Name = "textBox_ProductName";
             this.textBox_ProductName.Size = new System.Drawing.Size(279, 22);
             this.textBox_ProductName.TabIndex = 34;
-            this.textBox_ProductName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // price_label
             // 
             this.price_label.AutoSize = true;
-            this.price_label.Location = new System.Drawing.Point(20, 638);
+            this.price_label.Location = new System.Drawing.Point(20, 686);
             this.price_label.Name = "price_label";
             this.price_label.Size = new System.Drawing.Size(71, 16);
             this.price_label.TabIndex = 31;
@@ -102,7 +103,7 @@
             // Bidder_label
             // 
             this.Bidder_label.AutoSize = true;
-            this.Bidder_label.Location = new System.Drawing.Point(20, 592);
+            this.Bidder_label.Location = new System.Drawing.Point(20, 640);
             this.Bidder_label.Name = "Bidder_label";
             this.Bidder_label.Size = new System.Drawing.Size(97, 16);
             this.Bidder_label.TabIndex = 30;
@@ -127,16 +128,14 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "Produce Information";
             // 
-            // textBox1
+            // Client1_textBox
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Location = new System.Drawing.Point(29, 309);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(780, 173);
-            this.textBox1.TabIndex = 26;
-            this.textBox1.Text = "...";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Client1_textBox.BackColor = System.Drawing.SystemColors.Control;
+            this.Client1_textBox.Location = new System.Drawing.Point(29, 309);
+            this.Client1_textBox.Multiline = true;
+            this.Client1_textBox.Name = "Client1_textBox";
+            this.Client1_textBox.Size = new System.Drawing.Size(780, 173);
+            this.Client1_textBox.TabIndex = 26;
             // 
             // label2
             // 
@@ -166,7 +165,6 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 25;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
@@ -177,7 +175,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 24;
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 
@@ -188,7 +185,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 23;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -199,7 +195,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // bid_label
             // 
@@ -222,7 +217,6 @@
             this.textBox_Winner.Size = new System.Drawing.Size(279, 44);
             this.textBox_Winner.TabIndex = 41;
             this.textBox_Winner.Text = "Tin Trung";
-            this.textBox_Winner.TextChanged += new System.EventHandler(this.textBox_Winner_TextChanged);
             // 
             // label11
             // 
@@ -287,7 +281,7 @@
             // 
             // client_send_btn
             // 
-            this.client_send_btn.Location = new System.Drawing.Point(375, 682);
+            this.client_send_btn.Location = new System.Drawing.Point(375, 730);
             this.client_send_btn.Name = "client_send_btn";
             this.client_send_btn.Size = new System.Drawing.Size(63, 31);
             this.client_send_btn.TabIndex = 47;
@@ -304,11 +298,31 @@
             this.textBox_countDownClient.Size = new System.Drawing.Size(90, 127);
             this.textBox_countDownClient.TabIndex = 39;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(20, 592);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 16);
+            this.label4.TabIndex = 51;
+            this.label4.Text = "Strating Price:";
+            // 
+            // stratingPrice_textBox
+            // 
+            this.stratingPrice_textBox.Location = new System.Drawing.Point(159, 586);
+            this.stratingPrice_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.stratingPrice_textBox.Name = "stratingPrice_textBox";
+            this.stratingPrice_textBox.Size = new System.Drawing.Size(279, 22);
+            this.stratingPrice_textBox.TabIndex = 50;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 815);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.stratingPrice_textBox);
             this.Controls.Add(this.client_send_btn);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
@@ -318,7 +332,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox_countDownClient);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox_bidderName);
+            this.Controls.Add(this.textBox_bidder1Name);
             this.Controls.Add(this.textBox_price);
             this.Controls.Add(this.textBox_ProductName);
             this.Controls.Add(this.price_label);
@@ -326,7 +340,7 @@
             this.Controls.Add(this.product_label);
             this.Controls.Add(this.bid_label);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Client1_textBox);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -348,14 +362,14 @@
         #endregion
 
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.TextBox textBox_bidderName;
+        private System.Windows.Forms.TextBox textBox_bidder1Name;
         private System.Windows.Forms.TextBox textBox_price;
         private System.Windows.Forms.TextBox textBox_ProductName;
         private System.Windows.Forms.Label price_label;
         private System.Windows.Forms.Label Bidder_label;
         private System.Windows.Forms.Label product_label;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Client1_textBox;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -372,6 +386,8 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Button client_send_btn;
         private System.Windows.Forms.TextBox textBox_countDownClient;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox stratingPrice_textBox;
     }
 }
 

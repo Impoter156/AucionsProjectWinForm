@@ -59,6 +59,7 @@ namespace Client
                 ProcessReceivedData(result.Buffer);
             }
         }
+
         private void ProcessReceivedData(byte[] data)
         {
             string strData = Encoding.ASCII.GetString(data.Take(data.Length - 32).ToArray()); // Assuming last 32 bytes are HMAC
@@ -67,8 +68,18 @@ namespace Client
             // Verify HMAC
             if (VerifyHMAC(strData, receivedHMAC))
             {
-                MessageBox.Show(strData);
-                UpdateCheckbox(strData);
+                var parts = strData.Split('|');
+
+                // Display the error message in the corresponding text box
+                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder1Name.Text))
+                {
+                    AppendText_client1(parts[0]); // Show error message
+                }
+                else if (parts.Length == 4)
+                {
+                    UpdateCheckbox(parts[0], parts[1], parts[2], parts[3]);
+                }
+
                 StartCountdown(strData);
             }
             else
@@ -76,6 +87,7 @@ namespace Client
                 MessageBox.Show("HMAC verification failed.");
             }
         }
+
         private bool VerifyHMAC(string message, byte[] receivedHMAC)
         {
             byte[] computedHMAC = ComputeHMAC(message, sharedKey);
@@ -90,11 +102,11 @@ namespace Client
             }
         }
 
-        private void UpdateCheckbox(string imageName)
+        private void UpdateCheckbox(string imageName, string productName, string startingPrice, string productDescription)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action<string>(UpdateCheckbox), imageName);
+                Invoke(new Action<string, string, string, string>(UpdateCheckbox), imageName, productName, startingPrice, productDescription);
                 return;
             }
 
@@ -102,51 +114,28 @@ namespace Client
             checkBox2.Checked = imageName == "pictureBox2";
             checkBox3.Checked = imageName == "pictureBox3";
             checkBox4.Checked = imageName == "pictureBox4";
-        }
+            Client1_textBox.Text = productDescription;
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            textBox_ProductName.Text = productName;
+            stratingPrice_textBox.Text = startingPrice;
         }
 
         private void client_send_Click(object sender, EventArgs e)
         {
-            string message = $"{textBox_bidderName.Text}|{textBox_price.Text}";
+            string message = $"{textBox_bidder1Name.Text}|{textBox_price.Text}";
             byte[] hmac = ComputeHMAC(message, sharedKey);
             byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
             udpClient.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5000);
         }
 
-        private void textBox_bidderName_TextChanged(object sender, EventArgs e)
+        private void AppendText_client1(string message)
         {
-
+            if (InvokeRequired)
+            {
+                Invoke(new Action<string>(AppendText_client1), message);
+                return;
+            }
+            Client1_textBox.AppendText(Environment.NewLine + message + Environment.NewLine); // Ensure new line before and after message
         }
 
         private void StartCountdown(string message)
@@ -194,11 +183,6 @@ namespace Client
             {
                 countdownTimerClient.Stop(); // Stop the timer
             }
-        }
-
-        private void textBox_Winner_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

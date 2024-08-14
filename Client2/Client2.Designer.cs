@@ -37,9 +37,8 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox_Winner = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox_countDownClient2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox_bidderName = new System.Windows.Forms.TextBox();
+            this.textBox_bidder2Name = new System.Windows.Forms.TextBox();
             this.textBox_price = new System.Windows.Forms.TextBox();
             this.textBox_ProductName = new System.Windows.Forms.TextBox();
             this.price_label = new System.Windows.Forms.Label();
@@ -47,7 +46,7 @@
             this.product_label = new System.Windows.Forms.Label();
             this.bid_label = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Client2_textBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -55,6 +54,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.stratingPrice_textBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox_countDownClient2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -102,21 +104,16 @@
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
             // 
-            // textBox_countDownClient2
-            // 
-            resources.ApplyResources(this.textBox_countDownClient2, "textBox_countDownClient2");
-            this.textBox_countDownClient2.Name = "textBox_countDownClient2";
-            // 
             // label10
             // 
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
             // 
-            // textBox_bidderName
+            // textBox_bidder2Name
             // 
-            resources.ApplyResources(this.textBox_bidderName, "textBox_bidderName");
-            this.textBox_bidderName.Name = "textBox_bidderName";
-            this.textBox_bidderName.TextChanged += new System.EventHandler(this.textBox_bidderName_TextChanged);
+            resources.ApplyResources(this.textBox_bidder2Name, "textBox_bidder2Name");
+            this.textBox_bidder2Name.Name = "textBox_bidder2Name";
+            this.textBox_bidder2Name.Text = "";
             // 
             // textBox_price
             // 
@@ -127,7 +124,6 @@
             // 
             resources.ApplyResources(this.textBox_ProductName, "textBox_ProductName");
             this.textBox_ProductName.Name = "textBox_ProductName";
-            this.textBox_ProductName.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // price_label
             // 
@@ -155,12 +151,11 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // textBox1
+            // Client2_textBox
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Client2_textBox.BackColor = System.Drawing.SystemColors.Control;
+            resources.ApplyResources(this.Client2_textBox, "Client2_textBox");
+            this.Client2_textBox.Name = "Client2_textBox";
             // 
             // label2
             // 
@@ -180,40 +175,54 @@
             // 
             // pictureBox4
             // 
-            resources.ApplyResources(this.pictureBox4, "pictureBox4");
             this.pictureBox4.Image = global::Client2.Properties.Resources.telephone;
+            resources.ApplyResources(this.pictureBox4, "pictureBox4");
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox3
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.Image = global::Client2.Properties.Resources.bucTuong;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Image = global::Client2.Properties.Resources.caiDia;
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Image = global::Client2.Properties.Resources.WatchPicture;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // stratingPrice_textBox
+            // 
+            resources.ApplyResources(this.stratingPrice_textBox, "stratingPrice_textBox");
+            this.stratingPrice_textBox.Name = "stratingPrice_textBox";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // textBox_countDownClient2
+            // 
+            resources.ApplyResources(this.textBox_countDownClient2, "textBox_countDownClient2");
+            this.textBox_countDownClient2.Name = "textBox_countDownClient2";
             // 
             // Client2
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox_countDownClient2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.stratingPrice_textBox);
             this.Controls.Add(this.client_send_btn);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
@@ -221,9 +230,8 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox_Winner);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox_countDownClient2);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox_bidderName);
+            this.Controls.Add(this.textBox_bidder2Name);
             this.Controls.Add(this.textBox_price);
             this.Controls.Add(this.textBox_ProductName);
             this.Controls.Add(this.price_label);
@@ -231,7 +239,7 @@
             this.Controls.Add(this.product_label);
             this.Controls.Add(this.bid_label);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Client2_textBox);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -257,9 +265,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox_Winner;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox_countDownClient2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox_bidderName;
+        private System.Windows.Forms.TextBox textBox_bidder2Name;
         private System.Windows.Forms.TextBox textBox_price;
         private System.Windows.Forms.TextBox textBox_ProductName;
         private System.Windows.Forms.Label price_label;
@@ -267,7 +274,7 @@
         private System.Windows.Forms.Label product_label;
         private System.Windows.Forms.Label bid_label;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Client2_textBox;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -275,6 +282,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.TextBox stratingPrice_textBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox_countDownClient2;
     }
 }
 

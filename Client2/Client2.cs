@@ -70,7 +70,16 @@ namespace Client2
             // Verify HMAC
             if (VerifyHMAC(strData, receivedHMAC))
             {
-                UpdateCheckbox(strData);
+                var parts = strData.Split('|');
+                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder2Name.Text))
+                {
+                    AppendText_client2(strData);
+
+                }
+                else if (parts.Length == 4)
+                {
+                    UpdateCheckbox(parts[0], parts[1], parts[2], parts[3]);
+                }
                 StartCountdown(strData);
             }
             else
@@ -92,11 +101,11 @@ namespace Client2
             }
         }
 
-        private void UpdateCheckbox(string imageName)
+        private void UpdateCheckbox(string imageName, string productName, string startingPrice, string productDescription)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action<string>(UpdateCheckbox), imageName);
+                Invoke(new Action<string, string, string, string>(UpdateCheckbox), imageName, productName, startingPrice, productDescription);
                 return;
             }
 
@@ -104,42 +113,16 @@ namespace Client2
             checkBox2.Checked = imageName == "pictureBox2";
             checkBox3.Checked = imageName == "pictureBox3";
             checkBox4.Checked = imageName == "pictureBox4";
-        }
+            Client2_textBox.Text = productDescription;
 
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            textBox_ProductName.Text = productName;
+            stratingPrice_textBox.Text = startingPrice;
         }
 
 
         private void client_send_Click(object sender, EventArgs e)
         {
-            string message = $"{textBox_bidderName.Text}|{textBox_price.Text}";
+            string message = $"{textBox_bidder2Name.Text}|{textBox_price.Text}";
             byte[] hmac = ComputeHMAC(message, sharedKey);
             byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
             udpClient.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5000);
@@ -148,6 +131,16 @@ namespace Client2
         private void textBox_bidderName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AppendText_client2(string message)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<string>(AppendText_client2), message);
+                return;
+            }
+            Client2_textBox.AppendText(Environment.NewLine + message);
         }
 
         private void StartCountdown(string message)
