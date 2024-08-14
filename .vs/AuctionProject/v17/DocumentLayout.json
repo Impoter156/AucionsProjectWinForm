@@ -1,0 +1,186 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{21CEFAE8-FD90-457C-A083-3324C573D492}|Client\\Client.csproj|C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\client\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21CEFAE8-FD90-457C-A083-3324C573D492}|Client\\Client.csproj|solutionrelative:client\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D1E80B-0D5B-49CB-AA79-EC145F3C489E}|Server\\Server.csproj|c:\\users\\admin\\source\\repos\\aucionsprojectwinform\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D1E80B-0D5B-49CB-AA79-EC145F3C489E}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5EE703E-C092-478A-ACDF-441C6E30F92A}|Client2\\Client2.csproj|c:\\users\\admin\\source\\repos\\aucionsprojectwinform\\client2\\client2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5EE703E-C092-478A-ACDF-441C6E30F92A}|Client2\\Client2.csproj|solutionrelative:client2\\client2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21CEFAE8-FD90-457C-A083-3324C573D492}|Client\\Client.csproj|c:\\users\\admin\\source\\repos\\aucionsprojectwinform\\client\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{21CEFAE8-FD90-457C-A083-3324C573D492}|Client\\Client.csproj|solutionrelative:client\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5EE703E-C092-478A-ACDF-441C6E30F92A}|Client2\\Client2.csproj|c:\\users\\admin\\source\\repos\\aucionsprojectwinform\\client2\\client2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E5EE703E-C092-478A-ACDF-441C6E30F92A}|Client2\\Client2.csproj|solutionrelative:client2\\client2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21CEFAE8-FD90-457C-A083-3324C573D492}|Client\\Client.csproj|C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\client\\client.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21CEFAE8-FD90-457C-A083-3324C573D492}|Client\\Client.csproj|solutionrelative:client\\client.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5EE703E-C092-478A-ACDF-441C6E30F92A}|Client2\\Client2.csproj|c:\\users\\admin\\source\\repos\\aucionsprojectwinform\\client2\\client2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5EE703E-C092-478A-ACDF-441C6E30F92A}|Client2\\Client2.csproj|solutionrelative:client2\\client2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D1E80B-0D5B-49CB-AA79-EC145F3C489E}|Server\\Server.csproj|c:\\users\\admin\\source\\repos\\aucionsprojectwinform\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D1D1E80B-0D5B-49CB-AA79-EC145F3C489E}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D1D1E80B-0D5B-49CB-AA79-EC145F3C489E}|Server\\Server.csproj|C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\server\\server.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1D1E80B-0D5B-49CB-AA79-EC145F3C489E}|Server\\Server.csproj|solutionrelative:server\\server.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Server.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Server\\Server.cs",
+              "RelativeDocumentMoniker": "Server\\Server.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Server\\Server.cs [Design]",
+              "RelativeToolTip": "Server\\Server.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:07:18.648Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Server.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Server\\Server.Designer.cs",
+              "RelativeDocumentMoniker": "Server\\Server.Designer.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Server\\Server.Designer.cs",
+              "RelativeToolTip": "Server\\Server.Designer.cs",
+              "ViewState": "AQIAAP8AAAAAAAAAAAAAAIoAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T17:02:58.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Server\\Server.cs",
+              "RelativeDocumentMoniker": "Server\\Server.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Server\\Server.cs",
+              "RelativeToolTip": "Server\\Server.cs",
+              "ViewState": "AQIAAPIAAAAAAAAAAAAhwPgAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T08:54:30.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Client.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client\\Client.cs",
+              "RelativeDocumentMoniker": "Client\\Client.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client\\Client.cs [Design]",
+              "RelativeToolTip": "Client\\Client.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:24:03.96Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Client.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client\\Client.Designer.cs",
+              "RelativeDocumentMoniker": "Client\\Client.Designer.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client\\Client.Designer.cs",
+              "RelativeToolTip": "Client\\Client.Designer.cs",
+              "ViewState": "AQIAAF0BAAAAAAAAAAAAAGcBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T17:17:59.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client\\Client.cs",
+              "RelativeDocumentMoniker": "Client\\Client.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client\\Client.cs",
+              "RelativeToolTip": "Client\\Client.cs",
+              "ViewState": "AQIAALAAAAAAAAAAAAAiwEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T09:36:23.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Client2.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client2\\Client2.Designer.cs",
+              "RelativeDocumentMoniker": "Client2\\Client2.Designer.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client2\\Client2.Designer.cs",
+              "RelativeToolTip": "Client2\\Client2.Designer.cs",
+              "ViewState": "AQIAAJoAAAAAAAAAAAAAAKsAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:39:55.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Client2.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client2\\Client2.cs",
+              "RelativeDocumentMoniker": "Client2\\Client2.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client2\\Client2.cs [Design]",
+              "RelativeToolTip": "Client2\\Client2.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:39:31.026Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Client2.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client2\\Client2.cs",
+              "RelativeDocumentMoniker": "Client2\\Client2.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\AucionsProjectWinForm\\Client2\\Client2.cs",
+              "RelativeToolTip": "Client2\\Client2.cs",
+              "ViewState": "AQIAAJEAAAAAAAAAAAA+wJ4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T07:41:14.926Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
