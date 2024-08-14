@@ -8,3 +8,13 @@ D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client\
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client\obj\Debug\Client.exe
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client\obj\Debug\Client.pdb
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client\obj\Debug\Client.Client.resources
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\bin\Debug\Client.exe.config
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\bin\Debug\Client.exe
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\bin\Debug\Client.pdb
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\obj\Debug\Client.csproj.AssemblyReference.cache
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\obj\Debug\Client.Client.resources
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\obj\Debug\Client.csproj.GenerateResource.cache
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\obj\Debug\Client.exe
+C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client\obj\Debug\Client.pdb

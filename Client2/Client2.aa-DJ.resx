@@ -149,17 +149,11 @@
   <data name="checkBox1.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>
   </data>
-  <data name="textBox8.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Mongolian Baiti, 22.2pt</value>
-  </data>
   <data name="textBox8.Location" type="System.Drawing.Point, System.Drawing">
     <value>530, 743</value>
   </data>
   <data name="textBox8.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
-  </data>
-  <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 22.2pt, style=Bold, Italic</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
     <value>583, 691</value>
@@ -167,17 +161,11 @@
   <data name="label11.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
-  <data name="textBox_countDown.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 72pt</value>
-  </data>
   <data name="textBox_countDown.Location" type="System.Drawing.Point, System.Drawing">
     <value>612, 547</value>
   </data>
   <data name="textBox_countDown.TabIndex" type="System.Int32, mscorlib">
     <value>39</value>
-  </data>
-  <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt, style=Bold, Italic</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
     <value>622, 494</value>
@@ -221,17 +209,11 @@
   <data name="product_label.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
-  <data name="bid_label.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 13.8pt, style=Bold, Italic</value>
-  </data>
   <data name="bid_label.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 496</value>
   </data>
   <data name="bid_label.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
-  </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 290</value>
@@ -245,17 +227,11 @@
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
   </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
-  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 82</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 19.8pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>255, 9</value>

@@ -64,11 +64,17 @@ namespace Client
             string strData = Encoding.ASCII.GetString(data.Take(data.Length - 32).ToArray()); // Assuming last 32 bytes are HMAC
             byte[] receivedHMAC = data.Skip(data.Length - 32).ToArray();
 
+            MessageBox.Show("recieve");
+
             // Verify HMAC
             if (VerifyHMAC(strData, receivedHMAC))
             {
-                UpdateCheckbox(strData);
-                StartCountdown(strData);
+                var parts = strData.Split('|');
+                if (parts.Length == 4)
+                {
+                    UpdateCheckbox(parts[0], parts[1], parts[2], parts[3]);
+                    StartCountdown(strData);
+                }
             }
             else
             {
@@ -89,11 +95,11 @@ namespace Client
             }
         }
 
-        private void UpdateCheckbox(string imageName)
+        private void UpdateCheckbox(string imageName, string productDescription,string productName, string startingPrice)
         {
             if (InvokeRequired)
             {
-                Invoke(new Action<string>(UpdateCheckbox), imageName);
+                Invoke(new Action<string, string, string ,string>(UpdateCheckbox), imageName, productDescription ,productName, startingPrice);
                 return;
             }
 
@@ -101,28 +107,38 @@ namespace Client
             checkBox2.Checked = imageName == "pictureBox2";
             checkBox3.Checked = imageName == "pictureBox3";
             checkBox4.Checked = imageName == "pictureBox4";
+            textBox1.Text = productDescription;
+
+            textBox_ProductName.Text = productName;
+            textBox2.Text = startingPrice;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "This is a luxurious watch, made of gold, and it's a limited edition.";
+            textBox_ProductName.Text = "Golden Watch";
+            textBox2.Text = "300";
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "This is an antique plate from the 18th century, with intricate designs.";
+            textBox_ProductName.Text = "Plate from 18th century";
+            textBox2.Text = "150";
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "This is a bronze statue of a knight on horseback, from the Renaissance period.";
+            textBox_ProductName.Text = "Broze Statue";
+            textBox2.Text = "200";
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+            textBox_ProductName.Text = "Dial Telephone";
+            textBox2.Text = "100";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -175,6 +191,16 @@ namespace Client
             {
                 countdownTimerClient.Start(); // Start the countdown
             }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

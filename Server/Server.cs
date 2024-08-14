@@ -56,7 +56,7 @@ namespace Server
             }
         }
 
-        private async void ReceiveMessagesAsync()
+        private async Task ReceiveMessagesAsync()
         {
             while (true)
             {
@@ -79,13 +79,22 @@ namespace Server
 
         private async Task ProcessBidAsync(string message)
         {
+            // Simulate some asynchronous work, if needed
+            await Task.Yield();
+
+            if (string.IsNullOrEmpty(message))
+            {
+                // Handle the null or empty message case
+                return; // or log an error
+            }
+
             string[] parts = message.Split('|');
-            if (parts.Length == 2)
+            if (parts.Length == 2 && !string.IsNullOrEmpty(parts[1]))
             {
                 var bid = new Bid
                 {
                     BidderName = parts[0],
-                    Amount = decimal.Parse(parts[1])
+                    Amount = decimal.Parse(parts[1]) // Ensure this is a valid decimal
                 };
 
                 int bidderIndex;
@@ -163,11 +172,21 @@ namespace Server
 
         private void Selling_btn_Click(object sender, EventArgs e)
         {
-            SendMessageToClient(selectedImageName);
+            // Assuming you want to send the current selected product details
+            string imageName = selectedImageName; // Selected image name
+            string productName = textBox2.Text;   // Product name
+            string startingPrice = textBox3.Text; // Starting price
+            string productDescription = textBox1.Text;
+
+            // Send the selected image name, product name, and starting price to the client
+            SendMessageToClient(imageName, productDescription ,productName, startingPrice);
         }
 
-        private void SendMessageToClient(string message)
+
+        private void SendMessageToClient(string imageName, string productDescription ,string productName, string startingPrice)
         {
+            string message = $"{imageName}|{productDescription}|{productName}|{startingPrice}";
+            MessageBox.Show(message);
             byte[] hmac = ComputeHMAC(message, sharedKey);
             byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
             udpServer.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5001);
@@ -177,22 +196,38 @@ namespace Server
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            selectedImageName = pictureBox1.Name;
             textBox1.Text = "This is a luxurious watch, made of gold, and it's a limited edition.";
+            textBox2.Text = "Golden Watch";
+            textBox3.Text = "300";
+            //SendMessageToClient(selectedImageName, textBox1.Text, textBox2.Text, textBox3.Text);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            selectedImageName = pictureBox2.Name;   
             textBox1.Text = "This is an antique plate from the 18th century, with intricate designs.";
+            textBox2.Text = "Plate from 18th century";
+            textBox3.Text = "150";
+            //SendMessageToClient(selectedImageName, textBox1.Text, textBox2.Text, textBox3.Text);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+            selectedImageName = pictureBox3.Name;
             textBox1.Text = "This is a bronze statue of a knight on horseback, from the Renaissance period.";
+            textBox2.Text = "Broze Statue";
+            textBox3.Text = "200";
+            //SendMessageToClient(selectedImageName, textBox1.Text, textBox2.Text, textBox3.Text);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
+            selectedImageName = pictureBox4.Name;
             textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+            textBox2.Text = "Dial Telephone";
+            textBox3.Text = "100";
+            SendMessageToClient(selectedImageName, textBox1.Text, textBox2.Text, textBox3.Text);
         }
 
 
@@ -211,16 +246,80 @@ namespace Server
 
         private void CountDown_btn_Click(object sender, EventArgs e)
         {
-            countdownValue = 3;
+            countdownValue = 5;
             textBox_countdown.Text = countdownValue.ToString();
             countdownTimer.Start();
-            SendMessageToClient("start_countDown");
+
+            // Assuming you want to send the current selected product details
+
+            string productName = textBox2.Text;  // Product name
+            string startingPrice = textBox3.Text; // Starting price
+            string productDescription = textBox1.Text;
+
+            // Sending the countdown message along with the selected product details
+            SendMessageToClient(selectedImageName, productDescription, productName, startingPrice);
         }
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             udpServer?.Close();
             base.OnFormClosing(e);
+        }
+
+        private void textBox_bidder2Price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bidder2Name_lablel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_bidder1Price_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Server_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bidder2Price_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bidder1Name_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bidder1Price_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_countdown_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

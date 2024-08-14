@@ -55,6 +55,8 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.client_send_btn = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -69,7 +71,7 @@
             // 
             // textBox_bidderName
             // 
-            this.textBox_bidderName.Location = new System.Drawing.Point(159, 586);
+            this.textBox_bidderName.Location = new System.Drawing.Point(159, 635);
             this.textBox_bidderName.Name = "textBox_bidderName";
             this.textBox_bidderName.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidderName.TabIndex = 36;
@@ -77,7 +79,7 @@
             // 
             // textBox_price
             // 
-            this.textBox_price.Location = new System.Drawing.Point(159, 635);
+            this.textBox_price.Location = new System.Drawing.Point(159, 684);
             this.textBox_price.Name = "textBox_price";
             this.textBox_price.Size = new System.Drawing.Size(279, 22);
             this.textBox_price.TabIndex = 35;
@@ -93,7 +95,7 @@
             // price_label
             // 
             this.price_label.AutoSize = true;
-            this.price_label.Location = new System.Drawing.Point(20, 638);
+            this.price_label.Location = new System.Drawing.Point(20, 687);
             this.price_label.Name = "price_label";
             this.price_label.Size = new System.Drawing.Size(71, 16);
             this.price_label.TabIndex = 31;
@@ -102,7 +104,7 @@
             // Bidder_label
             // 
             this.Bidder_label.AutoSize = true;
-            this.Bidder_label.Location = new System.Drawing.Point(20, 592);
+            this.Bidder_label.Location = new System.Drawing.Point(20, 641);
             this.Bidder_label.Name = "Bidder_label";
             this.Bidder_label.Size = new System.Drawing.Size(97, 16);
             this.Bidder_label.TabIndex = 30;
@@ -125,7 +127,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(145, 16);
             this.label3.TabIndex = 27;
-            this.label3.Text = "Produce Information";
+            this.label3.Text = "Product Information";
             // 
             // textBox1
             // 
@@ -144,9 +146,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 16);
+            this.label2.Size = new System.Drawing.Size(182, 16);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Choose product to sell: ";
+            this.label2.Text = "Today\'s aution products: ";
             // 
             // label1
             // 
@@ -295,7 +297,7 @@
             // 
             // client_send_btn
             // 
-            this.client_send_btn.Location = new System.Drawing.Point(375, 682);
+            this.client_send_btn.Location = new System.Drawing.Point(375, 731);
             this.client_send_btn.Name = "client_send_btn";
             this.client_send_btn.Size = new System.Drawing.Size(63, 31);
             this.client_send_btn.TabIndex = 47;
@@ -303,11 +305,31 @@
             this.client_send_btn.UseVisualStyleBackColor = true;
             this.client_send_btn.Click += new System.EventHandler(this.client_send_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 593);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 16);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "Staring price:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(159, 590);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(279, 22);
+            this.textBox2.TabIndex = 50;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 815);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.client_send_btn);
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
@@ -371,6 +393,8 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Button client_send_btn;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

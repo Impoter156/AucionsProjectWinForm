@@ -59,6 +59,8 @@ namespace Server
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -112,7 +114,7 @@ namespace Server
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(25, 278);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 16);
+            this.label3.Size = new System.Drawing.Size(140, 16);
             this.label3.TabIndex = 8;
             this.label3.Text = "Product Information";
             // 
@@ -130,61 +132,67 @@ namespace Server
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 550);
+            this.label5.Location = new System.Drawing.Point(25, 574);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 16);
+            this.label5.Size = new System.Drawing.Size(93, 16);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Product Name:";
+            this.label5.Text = "Product name:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // bidder1Name_label
             // 
             this.bidder1Name_label.AutoSize = true;
-            this.bidder1Name_label.Location = new System.Drawing.Point(25, 597);
+            this.bidder1Name_label.Location = new System.Drawing.Point(25, 680);
             this.bidder1Name_label.Name = "bidder1Name_label";
-            this.bidder1Name_label.Size = new System.Drawing.Size(97, 16);
+            this.bidder1Name_label.Size = new System.Drawing.Size(94, 16);
             this.bidder1Name_label.TabIndex = 11;
-            this.bidder1Name_label.Text = "Bidder1 Name:";
+            this.bidder1Name_label.Text = "Bidder1 name:";
+            this.bidder1Name_label.Click += new System.EventHandler(this.bidder1Name_label_Click);
             // 
             // bidder1Price_label
             // 
             this.bidder1Price_label.AutoSize = true;
-            this.bidder1Price_label.Location = new System.Drawing.Point(25, 655);
+            this.bidder1Price_label.Location = new System.Drawing.Point(25, 730);
             this.bidder1Price_label.Name = "bidder1Price_label";
             this.bidder1Price_label.Size = new System.Drawing.Size(90, 16);
             this.bidder1Price_label.TabIndex = 12;
             this.bidder1Price_label.Text = "Bidder1 price:";
+            this.bidder1Price_label.Click += new System.EventHandler(this.bidder1Price_label_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(187, 544);
+            this.textBox2.Location = new System.Drawing.Point(187, 568);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(279, 22);
             this.textBox2.TabIndex = 15;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox_bidder1Name
             // 
-            this.textBox_bidder1Name.Location = new System.Drawing.Point(187, 591);
+            this.textBox_bidder1Name.Location = new System.Drawing.Point(187, 674);
             this.textBox_bidder1Name.Name = "textBox_bidder1Name";
             this.textBox_bidder1Name.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder1Name.TabIndex = 16;
             // 
             // textBox_bidder1Price
             // 
-            this.textBox_bidder1Price.Location = new System.Drawing.Point(187, 649);
+            this.textBox_bidder1Price.Location = new System.Drawing.Point(187, 724);
             this.textBox_bidder1Price.Name = "textBox_bidder1Price";
             this.textBox_bidder1Price.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder1Price.TabIndex = 17;
+            this.textBox_bidder1Price.TextChanged += new System.EventHandler(this.textBox_bidder1Price_TextChanged);
             // 
             // textBox_bidder2Price
             // 
-            this.textBox_bidder2Price.Location = new System.Drawing.Point(187, 762);
+            this.textBox_bidder2Price.Location = new System.Drawing.Point(187, 822);
             this.textBox_bidder2Price.Name = "textBox_bidder2Price";
             this.textBox_bidder2Price.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder2Price.TabIndex = 21;
+            this.textBox_bidder2Price.TextChanged += new System.EventHandler(this.textBox_bidder2Price_TextChanged);
             // 
             // textBox_bidder2Name
             // 
-            this.textBox_bidder2Name.Location = new System.Drawing.Point(187, 704);
+            this.textBox_bidder2Name.Location = new System.Drawing.Point(187, 775);
             this.textBox_bidder2Name.Name = "textBox_bidder2Name";
             this.textBox_bidder2Name.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder2Name.TabIndex = 20;
@@ -192,20 +200,22 @@ namespace Server
             // bidder2Price_label
             // 
             this.bidder2Price_label.AutoSize = true;
-            this.bidder2Price_label.Location = new System.Drawing.Point(25, 768);
+            this.bidder2Price_label.Location = new System.Drawing.Point(25, 828);
             this.bidder2Price_label.Name = "bidder2Price_label";
             this.bidder2Price_label.Size = new System.Drawing.Size(90, 16);
             this.bidder2Price_label.TabIndex = 19;
             this.bidder2Price_label.Text = "Bidder2 price:";
+            this.bidder2Price_label.Click += new System.EventHandler(this.bidder2Price_label_Click);
             // 
             // bidder2Name_lablel
             // 
             this.bidder2Name_lablel.AutoSize = true;
-            this.bidder2Name_lablel.Location = new System.Drawing.Point(25, 710);
+            this.bidder2Name_lablel.Location = new System.Drawing.Point(25, 781);
             this.bidder2Name_lablel.Name = "bidder2Name_lablel";
             this.bidder2Name_lablel.Size = new System.Drawing.Size(94, 16);
             this.bidder2Name_lablel.TabIndex = 18;
             this.bidder2Name_lablel.Text = "Bidder2 name:";
+            this.bidder2Name_lablel.Click += new System.EventHandler(this.bidder2Name_lablel_Click);
             // 
             // label10
             // 
@@ -226,6 +236,7 @@ namespace Server
             this.textBox_countdown.Name = "textBox_countdown";
             this.textBox_countdown.Size = new System.Drawing.Size(90, 127);
             this.textBox_countdown.TabIndex = 23;
+            this.textBox_countdown.TextChanged += new System.EventHandler(this.textBox_countdown_TextChanged);
             // 
             // label11
             // 
@@ -250,9 +261,9 @@ namespace Server
             // startSelling_btn
             // 
             this.startSelling_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startSelling_btn.Location = new System.Drawing.Point(721, 326);
+            this.startSelling_btn.Location = new System.Drawing.Point(721, 301);
             this.startSelling_btn.Name = "startSelling_btn";
-            this.startSelling_btn.Size = new System.Drawing.Size(93, 124);
+            this.startSelling_btn.Size = new System.Drawing.Size(93, 173);
             this.startSelling_btn.TabIndex = 26;
             this.startSelling_btn.Text = "Start";
             this.startSelling_btn.UseVisualStyleBackColor = true;
@@ -312,11 +323,30 @@ namespace Server
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 625);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(88, 16);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Starting price:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(187, 619);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(279, 22);
+            this.textBox3.TabIndex = 29;
+            // 
             // Server
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 813);
+            this.ClientSize = new System.Drawing.Size(843, 881);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.countDown_btn);
             this.Controls.Add(this.startSelling_btn);
             this.Controls.Add(this.textBox8);
@@ -346,6 +376,7 @@ namespace Server
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Server";
             this.Text = "Auctions Server";
+            this.Load += new System.EventHandler(this.Server_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -384,6 +415,8 @@ namespace Server
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button startSelling_btn;
         private System.Windows.Forms.Button countDown_btn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 
