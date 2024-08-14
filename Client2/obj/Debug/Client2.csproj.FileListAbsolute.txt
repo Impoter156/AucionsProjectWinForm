@@ -11,16 +11,29 @@ D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\aa-DJ\Client2.resources.dll
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.exe
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.pdb
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\bin\Debug\Client2.exe.config
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\bin\Debug\Client2.exe
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\bin\Debug\Client2.pdb
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\bin\Debug\aa-DJ\Client2.resources.dll
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.csproj.AssemblyReference.cache
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.Client2.resources
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.Properties.Resources.resources
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.Client2.aa-DJ.resources
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.csproj.GenerateResource.cache
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\aa-DJ\Client2.resources.dll
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.exe
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Client2\obj\Debug\Client2.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\bin\Debug\Client2.exe.config
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\bin\Debug\Client2.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\bin\Debug\Client2.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\bin\Debug\aa-DJ\Client2.resources.dll
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.Client2.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.Properties.Resources.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.Client2.aa-DJ.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\aa-DJ\Client2.resources.dll
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Client2\obj\Debug\Client2.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\bin\Debug\Client2.exe.config
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\bin\Debug\Client2.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\bin\Debug\Client2.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\bin\Debug\aa-DJ\Client2.resources.dll
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.Client2.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.Properties.Resources.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.Client2.aa-DJ.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\aa-DJ\Client2.resources.dll
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Client2\obj\Debug\Client2.pdb

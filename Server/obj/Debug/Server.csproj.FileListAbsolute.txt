@@ -8,13 +8,23 @@ D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.exe
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.pdb
 D:\Study\Hk4\Lap trinh mang\AuctionProject\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.Server.resources
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\bin\Debug\Server.exe.config
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\bin\Debug\Server.exe
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\bin\Debug\Server.pdb
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.AssemblyReference.cache
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\obj\Debug\Server.Properties.Resources.resources
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\obj\Debug\Server.Server.resources
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.GenerateResource.cache
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\obj\Debug\Server.exe
-C:\Users\ADMIN\source\repos\AucionsProjectWinForm\Server\obj\Debug\Server.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\bin\Debug\Server.exe.config
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\bin\Debug\Server.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\bin\Debug\Server.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.Server.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AuctionWinForm\AuctionWinForm\AuctionProject\Server\obj\Debug\Server.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\bin\Debug\Server.exe.config
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\bin\Debug\Server.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\bin\Debug\Server.pdb
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\obj\Debug\Server.Properties.Resources.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\obj\Debug\Server.Server.resources
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\obj\Debug\Server.exe
+C:\Users\HP\Desktop\K\ki He`\LT Mạng\AucionsProjectWinForm\Server\obj\Debug\Server.pdb

@@ -19,8 +19,8 @@ namespace Server
         private string selectedImageName;
         private CancellationTokenSource cancellationTokenSource;
         private byte[] sharedKey = Encoding.UTF8.GetBytes("2251120449");
-        private System.Windows.Forms.Timer countdownTimer;
-        private int countdownValue;
+        private System.Windows.Forms.Timer countdownTimerServer;
+        private int countdownValueServer;
         private List<Bid> bids; // To store incoming bids
         private readonly object bidLock = new object();
 
@@ -41,11 +41,10 @@ namespace Server
 
         private void InitializeComponents()
         {
-            countdownTimer = new System.Windows.Forms.Timer
+            countdownTimerServer = new System.Windows.Forms.Timer
             {
                 Interval = 1000 // Set interval to 1 second
             };
-            countdownTimer.Tick += CountdownTimer_Tick;
         }
 
         public static byte[] ComputeHMAC(string message, byte[] key)
@@ -77,6 +76,8 @@ namespace Server
             return receivedHMAC.SequenceEqual(computedHMAC);
         }
 
+        private Dictionary<string, decimal> firstBids = new Dictionary<string, decimal>(); // To store the first bid of each bidder
+
         private async Task ProcessBidAsync(string message)
         {
             // Simulate some asynchronous work, if needed
@@ -102,6 +103,28 @@ namespace Server
                 // Locking to ensure thread safety
                 lock (bidLock)
                 {
+                    // Check if the bid amount already exists
+                    if (bids.Any(b => b.Amount == bid.Amount))
+                    {
+                        SendMessageToClient($"error:Bid amount {bid.Amount} is already taken.");
+                        return;
+                    }
+
+                    // Check if this is the first bid from the bidder
+                    if (!firstBids.ContainsKey(bid.BidderName))
+                    {
+                        firstBids[bid.BidderName] = bid.Amount; // Store the first bid
+                    }
+                    else
+                    {
+                        // Ensure the new bid is greater than the first bid
+                        if (bid.Amount <= firstBids[bid.BidderName])
+                        {
+                            SendMessageToClient($"error:Your bid must be greater than your first bid of {firstBids[bid.BidderName]}.");
+                            return;
+                        }
+                    }
+
                     bidderIndex = GetBidderIndex(bid.BidderName);
 
                     if (bidderIndex > 0)
@@ -113,6 +136,8 @@ namespace Server
                 }
             }
         }
+
+
 
         private int GetBidderIndex(string bidderName)
         {
@@ -224,6 +249,7 @@ namespace Server
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             selectedImageName = pictureBox4.Name;
+            selectedImageName = pictureBox4.Name;
             textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
             textBox2.Text = "Dial Telephone";
             textBox3.Text = "100";
@@ -233,10 +259,14 @@ namespace Server
 
         private void CountdownTimer_Tick(object sender, EventArgs e)
         {
-            if (countdownValue > 0)
+
+            // Get the highest bid and tied bidders
+            var highestBid = bids.OrderByDescending(b => b.Amount).FirstOrDefault();
+            var tiedBids = bids.Where(b => b.Amount == highestBid.Amount).ToList();
+            if (countdownValueServer > 0)
             {
-                textBox_countdown.Text = countdownValue.ToString();
-                countdownValue--;
+                countdownValueServer--;
+                textBox_countdownServer.Text = countdownValueServer.ToString(); // Update countdown display
             }
             else
             {

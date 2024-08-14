@@ -16,7 +16,8 @@ namespace Client
         private Thread receiveThread;
         private byte[] sharedKey;
         private System.Windows.Forms.Timer countdownTimerClient;
-        private int countdownValue;
+        private int countdownValueClient;
+        private string winner;
 
         public Client()
         {
@@ -39,7 +40,6 @@ namespace Client
             {
                 Interval = 1000 // Set interval to 1 second
             };
-            countdownTimerClient.Tick += CountdownTimerClient_Tick;
         }
 
         private void StartReceiveThread()

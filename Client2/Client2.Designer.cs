@@ -35,9 +35,9 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox_Winner = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox_countDown = new System.Windows.Forms.TextBox();
+            this.textBox_countDownClient2 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox_bidderName = new System.Windows.Forms.TextBox();
             this.textBox_price = new System.Windows.Forms.TextBox();
@@ -94,20 +94,20 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // textBox_Winner
             // 
-            resources.ApplyResources(this.textBox8, "textBox8");
-            this.textBox8.Name = "textBox8";
+            resources.ApplyResources(this.textBox_Winner, "textBox_Winner");
+            this.textBox_Winner.Name = "textBox_Winner";
             // 
             // label11
             // 
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
             // 
-            // textBox_countDown
+            // textBox_countDownClient2
             // 
-            resources.ApplyResources(this.textBox_countDown, "textBox_countDown");
-            this.textBox_countDown.Name = "textBox_countDown";
+            resources.ApplyResources(this.textBox_countDownClient2, "textBox_countDownClient2");
+            this.textBox_countDownClient2.Name = "textBox_countDownClient2";
             // 
             // label10
             // 
@@ -235,9 +235,9 @@
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox_Winner);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox_countDown);
+            this.Controls.Add(this.textBox_countDownClient2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox_bidderName);
             this.Controls.Add(this.textBox_price);
@@ -273,9 +273,9 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox_Winner;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox_countDown;
+        private System.Windows.Forms.TextBox textBox_countDownClient2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox_bidderName;
         private System.Windows.Forms.TextBox textBox_price;
