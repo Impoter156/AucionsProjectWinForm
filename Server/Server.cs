@@ -19,8 +19,8 @@ namespace Server
         private string selectedImageName;
         private CancellationTokenSource cancellationTokenSource;
         private byte[] sharedKey = Encoding.UTF8.GetBytes("2251120449");
-        private System.Windows.Forms.Timer countdownTimer;
-        private int countdownValue;
+        private System.Windows.Forms.Timer countdownTimerServer;
+        private int countdownValueServer;
         private List<Bid> bids; // To store incoming bids
         private readonly object bidLock = new object();
 
@@ -41,11 +41,10 @@ namespace Server
 
         private void InitializeComponents()
         {
-            countdownTimer = new System.Windows.Forms.Timer
+            countdownTimerServer = new System.Windows.Forms.Timer
             {
                 Interval = 1000 // Set interval to 1 second
             };
-            countdownTimer.Tick += CountdownTimer_Tick;
         }
 
         public static byte[] ComputeHMAC(string message, byte[] key)
@@ -77,6 +76,8 @@ namespace Server
             return receivedHMAC.SequenceEqual(computedHMAC);
         }
 
+        private Dictionary<string, decimal> firstBids = new Dictionary<string, decimal>(); // To store the first bid of each bidder
+
         private async Task ProcessBidAsync(string message)
         {
             string[] parts = message.Split('|');
@@ -93,6 +94,28 @@ namespace Server
                 // Locking to ensure thread safety
                 lock (bidLock)
                 {
+                    // Check if the bid amount already exists
+                    if (bids.Any(b => b.Amount == bid.Amount))
+                    {
+                        SendMessageToClient($"error:Bid amount {bid.Amount} is already taken.");
+                        return;
+                    }
+
+                    // Check if this is the first bid from the bidder
+                    if (!firstBids.ContainsKey(bid.BidderName))
+                    {
+                        firstBids[bid.BidderName] = bid.Amount; // Store the first bid
+                    }
+                    else
+                    {
+                        // Ensure the new bid is greater than the first bid
+                        if (bid.Amount <= firstBids[bid.BidderName])
+                        {
+                            SendMessageToClient($"error:Your bid must be greater than your first bid of {firstBids[bid.BidderName]}.");
+                            return;
+                        }
+                    }
+
                     bidderIndex = GetBidderIndex(bid.BidderName);
 
                     if (bidderIndex > 0)
@@ -104,6 +127,8 @@ namespace Server
                 }
             }
         }
+
+
 
         private int GetBidderIndex(string bidderName)
         {
@@ -177,50 +202,85 @@ namespace Server
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "This is a luxurious watch, made of gold, and it's a limited edition.";
+            selectedImageName = pictureBox1.Name;
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "This is an antique plate from the 18th century, with intricate designs.";
+            selectedImageName = pictureBox2.Name;
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "This is a bronze statue of a knight on horseback, from the Renaissance period.";
+            selectedImageName = pictureBox3.Name;
+            textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
+            selectedImageName = pictureBox4.Name;
             textBox1.Text = "This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.";
-        }
-
-
-        private void CountdownTimer_Tick(object sender, EventArgs e)
-        {
-            if (countdownValue > 0)
-            {
-                textBox_countdown.Text = countdownValue.ToString();
-                countdownValue--;
-            }
-            else
-            {
-                countdownTimer.Stop();
-            }
         }
 
         private void CountDown_btn_Click(object sender, EventArgs e)
         {
-            countdownValue = 3;
-            textBox_countdown.Text = countdownValue.ToString();
-            countdownTimer.Start();
-            SendMessageToClient("start_countDown");
+            textBox_Winner.Text = ""; // Clear previous winner display
+
+            countdownValueServer = 3; // Reset the countdown value
+            textBox_countdownServer.Text = countdownValueServer.ToString(); // Display initial countdown
+
+            // Clear existing event handlers to avoid multiple subscriptions
+            countdownTimerServer.Tick -= CountdownTimerServer_Tick;
+            countdownTimerServer.Tick += CountdownTimerServer_Tick; // Add new handler
+
+            SendMessageToClient("start_countDown"); // Notify client to start countdown
+            countdownTimerServer.Start(); // Start the countdown timer
         }
+        
+
+        // Separate method for the countdown timer tick event
+        private void CountdownTimerServer_Tick(object sender, EventArgs e)
+        {
+
+            // Get the highest bid and tied bidders
+            var highestBid = bids.OrderByDescending(b => b.Amount).FirstOrDefault();
+            var tiedBids = bids.Where(b => b.Amount == highestBid.Amount).ToList();
+            if (countdownValueServer > 0)
+            {
+                countdownValueServer--;
+                textBox_countdownServer.Text = countdownValueServer.ToString(); // Update countdown display
+            }
+            else
+            {
+                countdownTimerServer.Stop(); // Stop the timer
+                var winner = tiedBids.First(); // Determine the winner
+                textBox_Winner.Text = winner.BidderName; // Display the winner
+                textBox_winneramount.Text = winner.Amount.ToString();
+                SendMessageToClient($"winner:{winner.BidderName}"); // Notify client of the winner
+
+                
+            }
+        }
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             udpServer?.Close();
             base.OnFormClosing(e);
+        }
+
+        private void textBox_countdownServer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -16,7 +16,8 @@ namespace Client
         private Thread receiveThread;
         private byte[] sharedKey;
         private System.Windows.Forms.Timer countdownTimerClient;
-        private int countdownValue;
+        private int countdownValueClient;
+        private string winner;
 
         public Client()
         {
@@ -39,7 +40,6 @@ namespace Client
             {
                 Interval = 1000 // Set interval to 1 second
             };
-            countdownTimerClient.Tick += CountdownTimerClient_Tick;
         }
 
         private void StartReceiveThread()
@@ -67,6 +67,7 @@ namespace Client
             // Verify HMAC
             if (VerifyHMAC(strData, receivedHMAC))
             {
+                MessageBox.Show(strData);
                 UpdateCheckbox(strData);
                 StartCountdown(strData);
             }
@@ -147,34 +148,57 @@ namespace Client
         {
 
         }
-        private void CountdownTimerClient_Tick(object sender, EventArgs e)
-        {
-            if (countdownValue > 0)
-            {
-                textBox_countDown.Text = countdownValue.ToString();
-                countdownValue--;
-            }
-            else
-            {
-                countdownTimerClient.Stop();
-            }
-        }
 
         private void StartCountdown(string message)
         {
-            if (textBox_countDown.InvokeRequired)
+            if (string.IsNullOrEmpty(message)) return;
+
+            // Ensure the UI update is performed on the UI thread
+            if (textBox_countDownClient.InvokeRequired)
             {
-                textBox_countDown.Invoke(new Action<string>(StartCountdown), message);
+                textBox_countDownClient.Invoke(new Action<string>(StartCountdown), message);
                 return;
             }
 
-            countdownValue = 3; // Set the countdown starting value
-            textBox_countDown.Text = countdownValue.ToString();
-
-            if (!countdownTimerClient.Enabled)
+            // Handle the winner message
+            if (message.StartsWith("winner:"))
             {
+                winner = message.Split(':')[1]; // Extract the winner's name
+                textBox_Winner.Text = winner; // Display the winner
+            }
+
+            // Start the countdown if it's not already running
+            if (!countdownTimerClient.Enabled && message == "start_countDown")
+            {
+                textBox_Winner.Text = ""; // Clear previous winner display
+                countdownValueClient = 3; // Set the countdown starting value
+                textBox_countDownClient.Text = countdownValueClient.ToString();
+
+                // Clear existing event handlers to avoid multiple subscriptions
+                countdownTimerClient.Tick -= CountdownTimerClient_Tick;
+                countdownTimerClient.Tick += CountdownTimerClient_Tick; // Add new handler
+
                 countdownTimerClient.Start(); // Start the countdown
             }
+        }
+
+        // Separate method for the countdown timer tick event
+        private void CountdownTimerClient_Tick(object sender, EventArgs e)
+        {
+            if (countdownValueClient > 0)
+            {
+                countdownValueClient--;
+                textBox_countDownClient.Text = countdownValueClient.ToString(); // Update countdown display
+            }
+            else
+            {
+                countdownTimerClient.Stop(); // Stop the timer
+            }
+        }
+
+        private void textBox_Winner_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

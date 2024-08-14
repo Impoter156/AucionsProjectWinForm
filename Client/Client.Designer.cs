@@ -46,15 +46,15 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bid_label = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox_Winner = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox_countDown = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.client_send_btn = new System.Windows.Forms.Button();
+            this.textBox_countDownClient = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -213,15 +213,16 @@
             this.bid_label.Text = "Bid now";
             this.bid_label.UseWaitCursor = true;
             // 
-            // textBox8
+            // textBox_Winner
             // 
-            this.textBox8.Font = new System.Drawing.Font("Mongolian Baiti", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(530, 743);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(279, 44);
-            this.textBox8.TabIndex = 41;
-            this.textBox8.Text = "Tin Trung";
+            this.textBox_Winner.Font = new System.Drawing.Font("Mongolian Baiti", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Winner.Location = new System.Drawing.Point(530, 743);
+            this.textBox_Winner.Multiline = true;
+            this.textBox_Winner.Name = "textBox_Winner";
+            this.textBox_Winner.Size = new System.Drawing.Size(279, 44);
+            this.textBox_Winner.TabIndex = 41;
+            this.textBox_Winner.Text = "Tin Trung";
+            this.textBox_Winner.TextChanged += new System.EventHandler(this.textBox_Winner_TextChanged);
             // 
             // label11
             // 
@@ -232,15 +233,6 @@
             this.label11.Size = new System.Drawing.Size(153, 42);
             this.label11.TabIndex = 40;
             this.label11.Text = "Winner!";
-            // 
-            // textBox_countDown
-            // 
-            this.textBox_countDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_countDown.Location = new System.Drawing.Point(612, 547);
-            this.textBox_countDown.Multiline = true;
-            this.textBox_countDown.Name = "textBox_countDown";
-            this.textBox_countDown.Size = new System.Drawing.Size(90, 127);
-            this.textBox_countDown.TabIndex = 39;
             // 
             // label10
             // 
@@ -303,6 +295,15 @@
             this.client_send_btn.UseVisualStyleBackColor = true;
             this.client_send_btn.Click += new System.EventHandler(this.client_send_Click);
             // 
+            // textBox_countDownClient
+            // 
+            this.textBox_countDownClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_countDownClient.Location = new System.Drawing.Point(612, 547);
+            this.textBox_countDownClient.Multiline = true;
+            this.textBox_countDownClient.Name = "textBox_countDownClient";
+            this.textBox_countDownClient.Size = new System.Drawing.Size(90, 127);
+            this.textBox_countDownClient.TabIndex = 39;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -313,9 +314,9 @@
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox_Winner);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox_countDown);
+            this.Controls.Add(this.textBox_countDownClient);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox_bidderName);
             this.Controls.Add(this.textBox_price);
@@ -362,15 +363,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label bid_label;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox_Winner;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox_countDown;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Button client_send_btn;
+        private System.Windows.Forms.TextBox textBox_countDownClient;
     }
 }
 
