@@ -146,6 +146,9 @@
   <data name="checkBox4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="checkBox4.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="checkBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>722, 276</value>
   </data>
@@ -172,6 +175,9 @@
   </data>
   <data name="checkBox3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="checkBox3.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="checkBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>509, 276</value>
@@ -200,6 +206,9 @@
   <data name="checkBox2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="checkBox2.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="checkBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>290, 276</value>
   </data>
@@ -226,6 +235,9 @@
   </data>
   <data name="checkBox1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="checkBox1.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>106, 276</value>
@@ -265,9 +277,6 @@
   </data>
   <data name="textBox_Winner.TabIndex" type="System.Int32, mscorlib">
     <value>76</value>
-  </data>
-  <data name="textBox_Winner.Text" xml:space="preserve">
-    <value>Tin Trung</value>
   </data>
   <data name="&gt;&gt;textBox_Winner.Name" xml:space="preserve">
     <value>textBox_Winner</value>

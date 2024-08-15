@@ -98,6 +98,7 @@
             // 
             resources.ApplyResources(this.textBox_Winner, "textBox_Winner");
             this.textBox_Winner.Name = "textBox_Winner";
+            this.textBox_Winner.ReadOnly = true;
             // 
             // label11
             // 
@@ -113,7 +114,6 @@
             // 
             resources.ApplyResources(this.textBox_bidder2Name, "textBox_bidder2Name");
             this.textBox_bidder2Name.Name = "textBox_bidder2Name";
-            this.textBox_bidder2Name.Text = "";
             // 
             // textBox_price
             // 
@@ -124,6 +124,7 @@
             // 
             resources.ApplyResources(this.textBox_ProductName, "textBox_ProductName");
             this.textBox_ProductName.Name = "textBox_ProductName";
+            this.textBox_ProductName.ReadOnly = true;
             // 
             // price_label
             // 
@@ -205,6 +206,7 @@
             // 
             resources.ApplyResources(this.stratingPrice_textBox, "stratingPrice_textBox");
             this.stratingPrice_textBox.Name = "stratingPrice_textBox";
+            this.stratingPrice_textBox.ReadOnly = true;
             // 
             // label4
             // 

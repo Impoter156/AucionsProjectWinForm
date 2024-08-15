@@ -8,6 +8,7 @@ using System.Threading;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Collections.Generic;
 
 namespace Client2
 {
@@ -20,6 +21,8 @@ namespace Client2
         private System.Windows.Forms.Timer countdownTimerClient;
         private int countdownValueClient2;
         private string winner;
+        private Product currentProduct; // Currently selected product
+        private List<Product> products; // List to hold products
 
 
         public Client2()
@@ -28,6 +31,20 @@ namespace Client2
             InitializeUdpClient();
             InitializeCountdownTimer();
             StartReceiveThread();
+
+            // Set up PictureBox click event handlers
+            pictureBox1.Click += pictureBox_Click;
+            pictureBox2.Click += pictureBox_Click;
+            pictureBox3.Click += pictureBox_Click;
+            pictureBox4.Click += pictureBox_Click;
+
+            products = new List<Product>
+            {
+                new Product("This is a luxurious watch, made of gold, and it's a limited edition."),
+                new Product("This is an antique plate from the 18th century, with intricate designs."),
+                new Product("This is a bronze statue of a knight on horseback, from the Renaissance period."),
+                new Product("This is a vintage rotary dial telephone with a classic design and brass details. The telephone, featuring a rotary dial, is a characteristic style from the mid-20th century.")
+            };
         }
 
         private void InitializeUdpClient()
@@ -119,6 +136,16 @@ namespace Client2
             stratingPrice_textBox.Text = startingPrice;
         }
 
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            if (sender is PictureBox clickedPictureBox)
+            {
+                int productIndex = int.Parse(clickedPictureBox.Name.Substring(clickedPictureBox.Name.Length - 1)) - 1;
+                currentProduct = products[productIndex];
+
+                Client2_textBox.Text = currentProduct.Description; // Display the product description
+            }
+        }
 
         private void client_send_Click(object sender, EventArgs e)
         {
@@ -188,6 +215,16 @@ namespace Client2
             {
                 countdownTimerClient.Stop(); // Stop the timer
             }
+        }
+    }
+
+    public class Product
+    {
+        public string Description { get; set; } // New property for description
+
+        public Product(string description)
+        {
+            Description = description;
         }
     }
 }

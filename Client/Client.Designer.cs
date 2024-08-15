@@ -75,7 +75,6 @@
             this.textBox_bidder1Name.Name = "textBox_bidder1Name";
             this.textBox_bidder1Name.Size = new System.Drawing.Size(279, 22);
             this.textBox_bidder1Name.TabIndex = 36;
-            this.textBox_bidder1Name.Text = "";
             // 
             // textBox_price
             // 
@@ -88,6 +87,7 @@
             // 
             this.textBox_ProductName.Location = new System.Drawing.Point(159, 541);
             this.textBox_ProductName.Name = "textBox_ProductName";
+            this.textBox_ProductName.ReadOnly = true;
             this.textBox_ProductName.Size = new System.Drawing.Size(279, 22);
             this.textBox_ProductName.TabIndex = 34;
             // 
@@ -214,9 +214,9 @@
             this.textBox_Winner.Location = new System.Drawing.Point(530, 743);
             this.textBox_Winner.Multiline = true;
             this.textBox_Winner.Name = "textBox_Winner";
+            this.textBox_Winner.ReadOnly = true;
             this.textBox_Winner.Size = new System.Drawing.Size(279, 44);
             this.textBox_Winner.TabIndex = 41;
-            this.textBox_Winner.Text = "Tin Trung";
             // 
             // label11
             // 
@@ -241,7 +241,9 @@
             // 
             // checkBox1
             // 
+            this.checkBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
             this.checkBox1.Location = new System.Drawing.Point(78, 267);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(86, 20);
@@ -251,7 +253,9 @@
             // 
             // checkBox2
             // 
+            this.checkBox2.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
             this.checkBox2.Location = new System.Drawing.Point(262, 267);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(86, 20);
@@ -261,7 +265,9 @@
             // 
             // checkBox3
             // 
+            this.checkBox3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.checkBox3.AutoSize = true;
+            this.checkBox3.Enabled = false;
             this.checkBox3.Location = new System.Drawing.Point(481, 267);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(86, 20);
@@ -271,7 +277,9 @@
             // 
             // checkBox4
             // 
+            this.checkBox4.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.checkBox4.AutoSize = true;
+            this.checkBox4.Enabled = false;
             this.checkBox4.Location = new System.Drawing.Point(694, 267);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(86, 20);
@@ -313,6 +321,7 @@
             this.stratingPrice_textBox.Location = new System.Drawing.Point(159, 586);
             this.stratingPrice_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stratingPrice_textBox.Name = "stratingPrice_textBox";
+            this.stratingPrice_textBox.ReadOnly = true;
             this.stratingPrice_textBox.Size = new System.Drawing.Size(279, 22);
             this.stratingPrice_textBox.TabIndex = 50;
             // 

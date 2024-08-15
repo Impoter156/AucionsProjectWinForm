@@ -48,3 +48,13 @@ D:\Study\Hk4\Lap trinh mang\AuctionProject\backup\AucionsProjectWinForm\Server\o
 D:\Study\Hk4\Lap trinh mang\AuctionProject\backup\AucionsProjectWinForm\Server\bin\Debug\Server.exe.config
 D:\Study\Hk4\Lap trinh mang\AuctionProject\backup\AucionsProjectWinForm\Server\bin\Debug\Server.exe
 D:\Study\Hk4\Lap trinh mang\AuctionProject\backup\AucionsProjectWinForm\Server\bin\Debug\Server.pdb
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\bin\Debug\Server.exe.config
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\bin\Debug\Server.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\bin\Debug\Server.pdb
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\obj\Debug\Server.Properties.Resources.resources
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\obj\Debug\Server.Server.resources
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.GenerateResource.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\obj\Debug\Server.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\Server\obj\Debug\Server.pdb
