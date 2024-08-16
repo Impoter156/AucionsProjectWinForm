@@ -48,7 +48,7 @@ namespace Client
         {
             receivePoint = new IPEndPoint(IPAddress.Any, 0);
             udpClient = new UdpClient(5001); // Ensure this is different from the server port
-            sharedKey = Encoding.UTF8.GetBytes("2251120449"); // Define your shared key here
+            sharedKey = Encoding.UTF8.GetBytes("auctions"); // Define your shared key here
         }
 
         private void InitializeCountdownTimer()
@@ -88,7 +88,7 @@ namespace Client
                 var parts = strData.Split('|');
 
                 // Display the error message in the corresponding text box
-                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder1Name.Text))
+                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder1Name.Text) || parts[0].StartsWith("Bid accepted"))
                 {
                     AppendText_client1(parts[0]); // Show error message
                 }
@@ -150,10 +150,18 @@ namespace Client
 
         private void client_send_Click(object sender, EventArgs e)
         {
-            string message = $"{textBox_bidder1Name.Text}|{textBox_price.Text}";
-            byte[] hmac = ComputeHMAC(message, sharedKey);
-            byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
-            udpClient.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5000);
+            if (textBox_bidder1Name.Text == "" || textBox_price.Text == "")
+            {
+                AppendText_client1("Please input name and price");
+                return;
+            }
+            else
+            {
+                string message = $"{textBox_bidder1Name.Text}|{textBox_price.Text}";
+                byte[] hmac = ComputeHMAC(message, sharedKey);
+                byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
+                udpClient.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5000);
+            }
         }
 
         private void AppendText_client1(string message)
@@ -163,7 +171,7 @@ namespace Client
                 Invoke(new Action<string>(AppendText_client1), message);
                 return;
             }
-            Client1_textBox.AppendText(Environment.NewLine + message + Environment.NewLine); // Ensure new line before and after message
+            Client1_textBox.AppendText(Environment.NewLine + message); // Ensure new line before and after message
         }
 
         private void StartCountdown(string message)

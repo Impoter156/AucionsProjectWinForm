@@ -12,3 +12,10 @@ C:\Users\ADMIN\source\repos\AucionsProjectWinForm\test2personClick\obj\Debug\tes
 C:\Users\ADMIN\source\repos\AucionsProjectWinForm\test2personClick\obj\Debug\test2personClick.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\source\repos\AucionsProjectWinForm\test2personClick\obj\Debug\test2personClick.exe
 C:\Users\ADMIN\source\repos\AucionsProjectWinForm\test2personClick\obj\Debug\test2personClick.pdb
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\test2personClick\bin\Debug\test2personClick.exe.config
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\test2personClick\bin\Debug\test2personClick.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\test2personClick\bin\Debug\test2personClick.pdb
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\test2personClick\obj\Debug\test2personClick.csproj.AssemblyReference.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\test2personClick\obj\Debug\test2personClick.csproj.CoreCompileInputs.cache
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\test2personClick\obj\Debug\test2personClick.exe
+D:\Study\Hk4\Lap trinh mang\AuctionProject\AucionsProjectWinForm\test2personClick\obj\Debug\test2personClick.pdb

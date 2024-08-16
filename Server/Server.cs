@@ -17,7 +17,7 @@ namespace Server
         private IPEndPoint remoteEndPoint;
         private const int PORT = 5000;
         private string selectedImageName;
-        private byte[] sharedKey = Encoding.UTF8.GetBytes("2251120449");
+        private byte[] sharedKey = Encoding.UTF8.GetBytes("auctions");
         private System.Windows.Forms.Timer countdownTimerServer;
         private int countdownValueServer;
         private List<Bid> bids; // To store incoming bids
@@ -76,14 +76,14 @@ namespace Server
         {
             while (true)
             {
-                    var result = await udpServer.ReceiveAsync();
-                    string receivedMessage = Encoding.ASCII.GetString(result.Buffer.Take(result.Buffer.Length - 32).ToArray());
-                    byte[] receivedHMAC = result.Buffer.Skip(result.Buffer.Length - 32).ToArray();
+                var result = await udpServer.ReceiveAsync();
+                string receivedMessage = Encoding.ASCII.GetString(result.Buffer.Take(result.Buffer.Length - 32).ToArray());
+                byte[] receivedHMAC = result.Buffer.Skip(result.Buffer.Length - 32).ToArray();
 
-                    if (VerifyHMAC(receivedMessage, receivedHMAC))
-                    {
-                        await ProcessBidAsync(receivedMessage);
-                    }
+                if (VerifyHMAC(receivedMessage, receivedHMAC))
+                {
+                    await ProcessBidAsync(receivedMessage);
+                }
             }
         }
 
@@ -92,8 +92,6 @@ namespace Server
             byte[] computedHMAC = ComputeHMAC(message, sharedKey);
             return receivedHMAC.SequenceEqual(computedHMAC);
         }
-
-
 
         private async Task ProcessBidAsync(string message)
         {
@@ -106,42 +104,46 @@ namespace Server
                     Amount = decimal.Parse(parts[1])
                 };
 
-                int bidderIndex;
-
                 // Locking to ensure thread safety
-                lock (bidLock)
+                await Task.Run(() =>
                 {
-                    // Check if the bid amount already exists
-                    if (bids.Any(b => b.Amount == bid.Amount))
+                    lock (bidLock)
                     {
-                        SendMessageToClient($"{bid.BidderName} amount {bid.Amount} is already taken.");
-                        return;
-                    }
-
-                    // Check if this is the first bid from the bidder
-                    if (!firstBids.ContainsKey(bid.BidderName))
-                    {
-                        firstBids[bid.BidderName] = bid.Amount; // Store the first bid
-                    }
-                    else
-                    {
-                        // Ensure the new bid is greater than the first bid
-                        if (bid.Amount <= firstBids[bid.BidderName])
+                        // Check if the bid amount is lower than the starting price
+                        if (bid.Amount <= currentProduct.Price)
                         {
-                            SendMessageToClient($"{bid.BidderName} your bid must be greater than your first bid of {firstBids[bid.BidderName]}.");
+                            SendMessageToClient($"{bid.BidderName} your bid must be greater than starting price of {currentProduct.Price}");
                             return;
                         }
-                    }
 
-                    bidderIndex = GetBidderIndex(bid.BidderName);
+                        // Check if the bid amount already exists
+                        if (bids.Any(b => b.Amount == bid.Amount))
+                        {
+                            SendMessageToClient($"{bid.BidderName} amount {bid.Amount} is already taken.");
+                            return;
+                        }
 
-                    if (bidderIndex > 0)
-                    {
+                        // Check if this is the first bid from the bidder
+                        if (!firstBids.ContainsKey(bid.BidderName))
+                        {
+                            firstBids[bid.BidderName] = bid.Amount; // Store the first bid
+                        }
+                        else
+                        {
+                            // Ensure the new bid is greater than the first bid
+                            if (bid.Amount <= firstBids[bid.BidderName])
+                            {
+                                SendMessageToClient($"{bid.BidderName} your bid must be greater than your first bid of {firstBids[bid.BidderName]}.");
+                                return;
+                            }
+                        }
+
+                        // Add the bid to the list and update the current product price
                         bids.Add(bid);
-                        UpdateTextBoxes(bid, bidderIndex);
-                        CheckForTieBids();
+                        currentProduct.Price = bid.Amount; // Update the product price
+                        UpdateTextBoxes(bid, GetBidderIndex(bid.BidderName));
                     }
-                }
+                });
             }
         }
 
@@ -182,31 +184,16 @@ namespace Server
                     case 1:
                         textBox_bidder1Name.Text = bid.BidderName;
                         textBox_bidder1Price.Text = bid.Amount.ToString();
+                        SendMessageToClient($"Bid accepted: {textBox_bidder1Name.Text} has bid {textBox_bidder1Price.Text} for {currentProduct.Name}.");
                         break;
                     case 2:
                         textBox_bidder2Name.Text = bid.BidderName;
                         textBox_bidder2Price.Text = bid.Amount.ToString();
+                        SendMessageToClient($"Bid accepted: {textBox_bidder2Name.Text} has bid {textBox_bidder2Price.Text} for {currentProduct.Name}.");
                         break;
                     default:
                         break;
                 }
-            }
-        }
-
-        private void CheckForTieBids()
-        {
-            var highestBid = bids.OrderByDescending(b => b.Amount).FirstOrDefault();
-            if (highestBid == null) return;
-
-            var tiedBids = bids.Where(b => b.Amount == highestBid.Amount).ToList();
-
-            if (tiedBids.Count > 1)
-            {
-                // Notify about the tie and initiate a secondary auction
-                MessageBox.Show("Tie detected! Initiating secondary auction among bidders.");
-                bids.Clear(); // Clear bids after processing
-
-                // StartSecondaryAuction(tiedBids);
             }
         }
 
@@ -225,6 +212,7 @@ namespace Server
 
         private void CountDown_btn_Click(object sender, EventArgs e)
         {
+
             textBox_Winner.Text = ""; // Clear previous winner display
 
             countdownValueServer = 3; // Reset the countdown value
@@ -258,12 +246,8 @@ namespace Server
                 }
             }
         }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+
 
     public class Product
     {

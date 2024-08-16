@@ -51,7 +51,7 @@ namespace Client2
         {
             receivePoint = new IPEndPoint(IPAddress.Any, 0);
             udpClient = new UdpClient(5002); // Ensure this is different from the server port
-            sharedKey = Encoding.UTF8.GetBytes("2251120449"); // Define your shared key here
+            sharedKey = Encoding.UTF8.GetBytes("auctions"); // Define your shared key here
         }
 
         private void InitializeCountdownTimer()
@@ -88,7 +88,7 @@ namespace Client2
             if (VerifyHMAC(strData, receivedHMAC))
             {
                 var parts = strData.Split('|');
-                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder2Name.Text))
+                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder2Name.Text) || parts[0].StartsWith("Bid accepted"))
                 {
                     AppendText_client2(strData);
 
@@ -149,10 +149,18 @@ namespace Client2
 
         private void client_send_Click(object sender, EventArgs e)
         {
-            string message = $"{textBox_bidder2Name.Text}|{textBox_price.Text}";
-            byte[] hmac = ComputeHMAC(message, sharedKey);
-            byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
-            udpClient.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5000);
+            if (textBox_bidder2Name.Text == "" || textBox_price.Text == "")
+            {
+                AppendText_client2("Please input name and price");
+                return;
+            }
+            else
+            {
+                string message = $"{textBox_bidder2Name.Text}|{textBox_price.Text}";
+                byte[] hmac = ComputeHMAC(message, sharedKey);
+                byte[] messageWithHMAC = Encoding.UTF8.GetBytes(message).Concat(hmac).ToArray();
+                udpClient.Send(messageWithHMAC, messageWithHMAC.Length, "localhost", 5000);
+            }
         }
 
         private void textBox_bidderName_TextChanged(object sender, EventArgs e)
