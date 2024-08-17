@@ -91,12 +91,12 @@ namespace Client2
                 if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder2Name.Text) || parts[0].StartsWith("Bid accepted"))
                 {
                     AppendText_client2(strData);
-
                 }
                 else if (parts.Length == 4)
                 {
                     UpdateCheckbox(parts[0], parts[1], parts[2], parts[3]);
                 }
+                ResetCountdown();
                 StartCountdown(strData);
             }
             else
@@ -180,6 +180,8 @@ namespace Client2
 
         private void StartCountdown(string message)
         {
+
+
             if (string.IsNullOrEmpty(message)) return;
 
             // Ensure the UI update is performed on the UI thread
@@ -206,10 +208,10 @@ namespace Client2
                 // Clear existing event handlers to avoid multiple subscriptions
                 countdownTimerClient.Tick -= CountdownTimerClient_Tick;
                 countdownTimerClient.Tick += CountdownTimerClient_Tick; // Add new handler
-
                 countdownTimerClient.Start(); // Start the countdown
             }
         }
+
 
         // Separate method for the countdown timer tick event
         private void CountdownTimerClient_Tick(object sender, EventArgs e)
@@ -224,6 +226,14 @@ namespace Client2
                 countdownTimerClient.Stop(); // Stop the timer
             }
         }
+        private void ResetCountdown()
+        {
+            if (countdownTimerClient.Enabled)
+            {
+                countdownTimerClient.Stop(); // Stop the timer
+            }
+        }
+
     }
 
     public class Product

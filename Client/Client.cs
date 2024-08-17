@@ -96,7 +96,7 @@ namespace Client
                 {
                     UpdateCheckbox(parts[0], parts[1], parts[2], parts[3]);
                 }
-
+                ResetCountdown();
                 StartCountdown(strData);
             }
             else
@@ -216,6 +216,13 @@ namespace Client
                 textBox_countDownClient.Text = countdownValueClient.ToString(); // Update countdown display
             }
             else
+            {
+                countdownTimerClient.Stop(); // Stop the timer
+            }
+        }
+        private void ResetCountdown()
+        {
+            if (countdownTimerClient.Enabled)
             {
                 countdownTimerClient.Stop(); // Stop the timer
             }

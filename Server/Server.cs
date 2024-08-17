@@ -25,6 +25,8 @@ namespace Server
         private readonly object bidLock = new object();
         private Product currentProduct; // Currently selected product
         private Dictionary<string, decimal> firstBids = new Dictionary<string, decimal>(); // To store the first bid of each bidder
+        private bool breakCountDown = false;
+
 
         public Server()
         {
@@ -109,6 +111,8 @@ namespace Server
                 {
                     lock (bidLock)
                     {
+                        //breakCountDown = true;
+
                         // Check if the bid amount is lower than the starting price
                         if (bid.Amount <= currentProduct.Price)
                         {
@@ -142,6 +146,9 @@ namespace Server
                         bids.Add(bid);
                         currentProduct.Price = bid.Amount; // Update the product price
                         UpdateTextBoxes(bid, GetBidderIndex(bid.BidderName));
+
+                        ResetCountdown(); // Reset countdown if a new price is received
+
                     }
                 });
             }
@@ -155,7 +162,7 @@ namespace Server
                 currentProduct = products[productIndex];
                 selectedImageName = currentProduct.NameBox;
 
-                textBox1.Text = currentProduct.Description; // Display the product description
+                AppendText_Server(currentProduct.Description); // Display the product description
                 productName_textbox.Text = currentProduct.Name; // Display the product name
                 CurrentPrice_textbox.Text = currentProduct.Price.ToString(); // Display the product price
             }
@@ -184,11 +191,13 @@ namespace Server
                     case 1:
                         textBox_bidder1Name.Text = bid.BidderName;
                         textBox_bidder1Price.Text = bid.Amount.ToString();
+                        AppendText_Server($"Bid accepted: {textBox_bidder1Name.Text} has bid {textBox_bidder1Price.Text} for {currentProduct.Name}.");
                         SendMessageToClient($"Bid accepted: {textBox_bidder1Name.Text} has bid {textBox_bidder1Price.Text} for {currentProduct.Name}.");
                         break;
                     case 2:
                         textBox_bidder2Name.Text = bid.BidderName;
                         textBox_bidder2Price.Text = bid.Amount.ToString();
+                        AppendText_Server($"Bid accepted: {textBox_bidder2Name.Text} has bid {textBox_bidder2Price.Text} for {currentProduct.Name}.");
                         SendMessageToClient($"Bid accepted: {textBox_bidder2Name.Text} has bid {textBox_bidder2Price.Text} for {currentProduct.Name}.");
                         break;
                     default:
@@ -246,6 +255,25 @@ namespace Server
                 }
             }
         }
+        private void ResetCountdown()
+        {
+            if (countdownTimerServer.Enabled)
+            {
+                countdownTimerServer.Stop(); // Stop the timer
+            }
+            countdownValueServer = 3; // Reset to the starting value
+        }
+
+        private void AppendText_Server(string message)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<string>(AppendText_Server), message);
+                return;
+            }
+            textBox1.AppendText(Environment.NewLine + message);
+        }
+
     }
 
 
