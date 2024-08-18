@@ -103,16 +103,28 @@ namespace Server
                 var bid = new Bid
                 {
                     BidderName = parts[0],
-                    Amount = decimal.Parse(parts[1])
+                    Amount = decimal.Parse(parts[1]),
+                    Timestamp = DateTime.Now // Set the timestamp to nowTimestamp = DateTime.Now // Set the timestamp to now
                 };
 
                 // Locking to ensure thread safety
                 await Task.Run(() =>
                 {
+                    bids.Add(bid);
+                    if (CheckSameTime())
+                    {
+                        UpdateTextBoxes(bid, GetBidderIndex(bid.BidderName));
+                        CheckForTieBids();
+                        currentProduct.Price = bid.Amount; // Update the product price
+                        return;
+                    }
+                    else
+                    {
+                        bids.Remove(bid);
+                    }
+
                     lock (bidLock)
                     {
-                        //breakCountDown = true;
-
                         // Check if the bid amount is lower than the starting price
                         if (bid.Amount <= currentProduct.Price)
                         {
@@ -141,17 +153,68 @@ namespace Server
                                 return;
                             }
                         }
-
-                        // Add the bid to the list and update the current product price
                         bids.Add(bid);
-                        currentProduct.Price = bid.Amount; // Update the product price
+
                         UpdateTextBoxes(bid, GetBidderIndex(bid.BidderName));
-
                         ResetCountdown(); // Reset countdown if a new price is received
-
+                        currentProduct.Price = bid.Amount; // Update the product price
                     }
                 });
             }
+        }
+
+        private void CheckForTieBids()
+        {
+            var highestBid = bids.OrderByDescending(b => b.Amount).FirstOrDefault();
+            if (highestBid == null) return;
+
+            var tiedBids = bids.Where(b => b.Amount == highestBid.Amount).ToList();
+
+            if (tiedBids.Count > 1)
+            {
+                // Notify about the tie and initiate a secondary auction
+                String message = "Tie detected! Initiating secondary auction among bidders.";
+                AppendText_Server(message);
+                SendMessageToClient(message);
+                bids.Clear();
+            }
+        }
+
+
+        private bool CheckSameTime()
+        {
+            lock (bidLock)
+            {
+                if (bids.Count < 2)
+                    return false; // No need to check if there are fewer than 2 bids
+
+                // Define a time tolerance, e.g., 1 second
+                TimeSpan tolerance = TimeSpan.FromSeconds(1);
+
+                // Get the first bid time
+                var firstBidderTime = bids[0].Timestamp;
+
+                // Check if all bids are within the tolerance range
+                bool allSameTime = bids.All(b => Math.Abs((b.Timestamp - firstBidderTime).TotalMilliseconds) <= tolerance.TotalMilliseconds);
+
+                if (allSameTime)
+                {
+                    MessageBox.Show("All bidders made their bids at the same time. Starting a secondary auction with price " + currentProduct.Price);
+                    // Clear the list of bids and bidders
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private int GetBidderIndex(string bidderName)
+        {
+            if (bids.Any(b => b.BidderName.Equals(bidderName, StringComparison.OrdinalIgnoreCase)))
+            {
+                return bids.FindIndex(b => b.BidderName.Equals(bidderName, StringComparison.OrdinalIgnoreCase)) + 1;
+            }
+
+            return bids.Count + 1; // Example logic for new bidders
         }
 
         private void pictureBox_Click(object sender, EventArgs e)
@@ -166,16 +229,6 @@ namespace Server
                 productName_textbox.Text = currentProduct.Name; // Display the product name
                 CurrentPrice_textbox.Text = currentProduct.Price.ToString(); // Display the product price
             }
-        }
-
-        private int GetBidderIndex(string bidderName)
-        {
-            if (bids.Any(b => b.BidderName.Equals(bidderName, StringComparison.OrdinalIgnoreCase)))
-            {
-                return bids.FindIndex(b => b.BidderName.Equals(bidderName, StringComparison.OrdinalIgnoreCase)) + 1;
-            }
-
-            return bids.Count + 1; // Example logic for new bidders
         }
 
         private void UpdateTextBoxes(Bid bid, int bidderIndex)
@@ -221,19 +274,23 @@ namespace Server
 
         private void CountDown_btn_Click(object sender, EventArgs e)
         {
+            if (bids.Count >= 2)
+            {
+                textBox_Winner.Text = ""; // Clear previous winner display
+                textBox_winneramount.Text = "";
 
-            textBox_Winner.Text = ""; // Clear previous winner display
+                countdownValueServer = 7; // Reset the countdown value
+                textBox_countdownServer.Text = countdownValueServer.ToString(); // Display initial countdown
 
-            countdownValueServer = 3; // Reset the countdown value
-            textBox_countdownServer.Text = countdownValueServer.ToString(); // Display initial countdown
+                // Clear existing event handlers to avoid multiple subscriptions
+                countdownTimerServer.Tick -= CountdownTimerServer_Tick;
+                countdownTimerServer.Tick += CountdownTimerServer_Tick; // Add new handler
 
-            // Clear existing event handlers to avoid multiple subscriptions
-            countdownTimerServer.Tick -= CountdownTimerServer_Tick;
-            countdownTimerServer.Tick += CountdownTimerServer_Tick; // Add new handler
-
-            // Sending the countdown message along with the selected product details
-            SendMessageToClient("start_countDown");
-            countdownTimerServer.Start(); // Start the countdown timer
+                // Sending the countdown message along with the selected product details
+                SendMessageToClient("start_countDown");
+                countdownTimerServer.Start(); // Start the countdown timer
+            }
+            else { AppendText_Server("Must have 2 client to start the auction"); }
         }
 
         private void CountdownTimerServer_Tick(object sender, EventArgs e)
@@ -251,7 +308,7 @@ namespace Server
                 {
                     textBox_Winner.Text = highestBid.BidderName; // Display the winner
                     textBox_winneramount.Text = highestBid.Amount.ToString();
-                    SendMessageToClient($"winner: {highestBid.BidderName}"); // Notify client of the winner
+                    SendMessageToClient($"winner: {highestBid.BidderName}:{highestBid.Amount}"); // Notify client of the winner
                 }
             }
         }
@@ -259,9 +316,8 @@ namespace Server
         {
             if (countdownTimerServer.Enabled)
             {
-                countdownTimerServer.Stop(); // Stop the timer
+                countdownTimerServer.Stop(); 
             }
-            countdownValueServer = 3; // Reset to the starting value
         }
 
         private void AppendText_Server(string message)
@@ -282,7 +338,7 @@ namespace Server
         public string NameBox { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public string Description { get; set; } // New property for description
+        public string Description { get; set; } 
 
         public Product(string namebox, string name, decimal price, string description)
         {
@@ -297,5 +353,6 @@ namespace Server
     {
         public string BidderName { get; set; }
         public decimal Amount { get; set; }
+        public DateTime Timestamp { get; set; } 
     }
 }

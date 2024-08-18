@@ -21,6 +21,7 @@ namespace Client2
         private System.Windows.Forms.Timer countdownTimerClient;
         private int countdownValueClient2;
         private string winner;
+        private string pricewin;
         private Product currentProduct; // Currently selected product
         private List<Product> products; // List to hold products
 
@@ -88,7 +89,7 @@ namespace Client2
             if (VerifyHMAC(strData, receivedHMAC))
             {
                 var parts = strData.Split('|');
-                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder2Name.Text) || parts[0].StartsWith("Bid accepted"))
+                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder2Name.Text) || parts[0].StartsWith("Bid accepted") || parts[0].StartsWith("Tie"))
                 {
                     AppendText_client2(strData);
                 }
@@ -163,11 +164,6 @@ namespace Client2
             }
         }
 
-        private void textBox_bidderName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void AppendText_client2(string message)
         {
             if (InvokeRequired)
@@ -196,13 +192,15 @@ namespace Client2
             {
                 winner = message.Split(':')[1]; // Extract the winner's name
                 textBox_Winner.Text = winner; // Display the winner
+                pricewin = message.Split(':')[2];
+                priceWin_textbox.Text = pricewin; 
             }
 
             // Start the countdown if it's not already running
             if (!countdownTimerClient.Enabled && message == "start_countDown")
             {
                 textBox_Winner.Text = ""; // Clear previous winner display
-                countdownValueClient2 = 3; // Set the countdown starting value
+                countdownValueClient2 = 7; // Set the countdown starting value
                 textBox_countDownClient2.Text = countdownValueClient2.ToString();
 
                 // Clear existing event handlers to avoid multiple subscriptions

@@ -57,6 +57,7 @@
             this.textBox_countDownClient = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.stratingPrice_textBox = new System.Windows.Forms.TextBox();
+            this.priceWin_textbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -134,6 +135,7 @@
             this.Client1_textBox.Location = new System.Drawing.Point(29, 309);
             this.Client1_textBox.Multiline = true;
             this.Client1_textBox.Name = "Client1_textBox";
+            this.Client1_textBox.ReadOnly = true;
             this.Client1_textBox.Size = new System.Drawing.Size(780, 173);
             this.Client1_textBox.TabIndex = 26;
             // 
@@ -325,11 +327,24 @@
             this.stratingPrice_textBox.Size = new System.Drawing.Size(279, 22);
             this.stratingPrice_textBox.TabIndex = 50;
             // 
+            // priceWin_textbox
+            // 
+            this.priceWin_textbox.Font = new System.Drawing.Font("Mongolian Baiti", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceWin_textbox.Location = new System.Drawing.Point(530, 792);
+            this.priceWin_textbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.priceWin_textbox.Multiline = true;
+            this.priceWin_textbox.Name = "priceWin_textbox";
+            this.priceWin_textbox.ReadOnly = true;
+            this.priceWin_textbox.Size = new System.Drawing.Size(279, 43);
+            this.priceWin_textbox.TabIndex = 52;
+            this.priceWin_textbox.Text = "";
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 815);
+            this.ClientSize = new System.Drawing.Size(848, 894);
+            this.Controls.Add(this.priceWin_textbox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.stratingPrice_textBox);
             this.Controls.Add(this.client_send_btn);
@@ -397,6 +412,7 @@
         private System.Windows.Forms.TextBox textBox_countDownClient;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox stratingPrice_textBox;
+        private System.Windows.Forms.TextBox priceWin_textbox;
     }
 }
 

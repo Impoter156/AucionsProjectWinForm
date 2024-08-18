@@ -19,6 +19,7 @@ namespace Client
         private System.Windows.Forms.Timer countdownTimerClient;
         private int countdownValueClient;
         private string winner;
+        private string pricewin;
         private Product currentProduct; // Currently selected product
         private List<Product> products; // List to hold products
 
@@ -88,7 +89,7 @@ namespace Client
                 var parts = strData.Split('|');
 
                 // Display the error message in the corresponding text box
-                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder1Name.Text) || parts[0].StartsWith("Bid accepted"))
+                if (parts.Length == 1 && parts[0].StartsWith(textBox_bidder1Name.Text) || parts[0].StartsWith("Bid accepted")|| parts[0].StartsWith("Tie"))
                 {
                     AppendText_client1(parts[0]); // Show error message
                 }
@@ -190,13 +191,17 @@ namespace Client
             {
                 winner = message.Split(':')[1]; // Extract the winner's name
                 textBox_Winner.Text = winner; // Display the winner
+                pricewin = message.Split(':')[2];
+                priceWin_textbox.Text = pricewin;
             }
 
             // Start the countdown if it's not already running
             if (!countdownTimerClient.Enabled && message == "start_countDown")
             {
                 textBox_Winner.Text = ""; // Clear previous winner display
-                countdownValueClient = 3; // Set the countdown starting value
+                priceWin_textbox.Text = "";
+
+                countdownValueClient = 7; // Set the countdown starting value
                 textBox_countDownClient.Text = countdownValueClient.ToString();
 
                 // Clear existing event handlers to avoid multiple subscriptions

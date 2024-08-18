@@ -57,6 +57,7 @@
             this.stratingPrice_textBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox_countDownClient2 = new System.Windows.Forms.TextBox();
+            this.priceWin_textbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -157,6 +158,7 @@
             this.Client2_textBox.BackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.Client2_textBox, "Client2_textBox");
             this.Client2_textBox.Name = "Client2_textBox";
+            this.Client2_textBox.ReadOnly = true;
             // 
             // label2
             // 
@@ -218,10 +220,18 @@
             resources.ApplyResources(this.textBox_countDownClient2, "textBox_countDownClient2");
             this.textBox_countDownClient2.Name = "textBox_countDownClient2";
             // 
+            // priceWin_textbox
+            // 
+            resources.ApplyResources(this.priceWin_textbox, "priceWin_textbox");
+            this.priceWin_textbox.Name = "priceWin_textbox";
+            this.priceWin_textbox.ReadOnly = true;
+            this.priceWin_textbox.Text = "";
+            // 
             // Client2
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.priceWin_textbox);
             this.Controls.Add(this.textBox_countDownClient2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.stratingPrice_textBox);
@@ -287,6 +297,7 @@
         private System.Windows.Forms.TextBox stratingPrice_textBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox_countDownClient2;
+        private System.Windows.Forms.TextBox priceWin_textbox;
     }
 }
 
