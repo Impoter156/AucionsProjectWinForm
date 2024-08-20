@@ -15,7 +15,6 @@ namespace Server
     {
         private UdpClient udpServer;
         private IPEndPoint remoteEndPoint;
-        private const int PORT = 5000;
         private string selectedImageName;
         private byte[] sharedKey = Encoding.UTF8.GetBytes("auctions");
         private System.Windows.Forms.Timer countdownTimerServer;
@@ -54,8 +53,8 @@ namespace Server
 
         private void StartServer()
         {
-            udpServer = new UdpClient(PORT);
-            remoteEndPoint = new IPEndPoint(IPAddress.Any, PORT);
+            udpServer = new UdpClient(5000);
+            remoteEndPoint = new IPEndPoint(IPAddress.Any, 5000);
         }
 
         private void InitializeComponents()
@@ -262,6 +261,10 @@ namespace Server
         private void Selling_btn_Click(object sender, EventArgs e)
         {
             SendMessageToClient($"{selectedImageName}|{productName_textbox.Text}|{CurrentPrice_textbox.Text}|{textBox1.Text}");
+
+            //Clear previous bids
+            bids.Clear();
+            firstBids.Clear();
         }
 
         private void SendMessageToClient(string message)

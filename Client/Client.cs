@@ -15,7 +15,7 @@ namespace Client
         private UdpClient udpClient;
         private IPEndPoint receivePoint;
         private Thread receiveThread;
-        private byte[] sharedKey;
+        private byte[] sharedKey = Encoding.UTF8.GetBytes("auctions");
         private System.Windows.Forms.Timer countdownTimerClient;
         private int countdownValueClient;
         private string winner;
@@ -48,8 +48,7 @@ namespace Client
         private void InitializeUdpClient()
         {
             receivePoint = new IPEndPoint(IPAddress.Any, 0);
-            udpClient = new UdpClient(5001); // Ensure this is different from the server port
-            sharedKey = Encoding.UTF8.GetBytes("auctions"); // Define your shared key here
+            udpClient = new UdpClient(5001); 
         }
 
         private void InitializeCountdownTimer()
